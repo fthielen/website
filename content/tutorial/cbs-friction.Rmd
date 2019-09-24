@@ -1,0 +1,97 @@
+---
+date: "2018-09-09T00:00:00+02:00"
+draft: false
+linktitle: Any link
+menu:
+  tutorial:
+    parent: CBS EE R
+    weight: 1
+title: CBS data for Economic Evaluations in R
+toc: true
+type: docs
+---
+
+
+```{r}
+# Function to calculate the friction period with CBS data
+library(dplyr)
+FrictionPeriods <- function(years,
+                            industry = "T001081",
+                            folderpath = NULL,
+                            download = T,
+                            yeardays = 365.25,
+                            ...) {
+        
+        # Required libraroes
+        require("dplyr")
+        require("cbsodataR")
+        require("lubridate")
+        
+        # Check path input parameter
+        if (download & is.null(folderpath))
+                stop("Specify folderpath for downloaded CBS data or set download to FALSE")
+        
+        # Set path
+        path1 <- folderpath
+        path2 <- paste0(folderpath, "data.Rda")
+        
+        # Create directory if not existing
+        if (!dir.exists(path1))
+                dir.create(path1)
+        
+        # Download data
+        if (download) {
+                if (!file.exists(path2)) {
+                        dat.cbs <- cbsodataR::cbs_get_data("80472NED")
+                        saveRDS(dat.cbs, file = path2)
+                } else {
+                        dat.cbs <- readRDS(path2)
+                }
+                
+        } else{
+                dat.cbs <- cbsodataR::cbs_get_data("80472NED")
+        }
+        
+        # Add column labels and dates
+        dat <- dat.cbs %>%
+                cbsodataR::cbs_add_label_columns() %>%
+                cbsodataR::cbs_add_date_column()
+        
+        # Check for years input parameter
+        if(any(!years %in% year(
+                dat[dat$Perioden_freq == "Y", "Perioden_Date"][[1]])))
+                stop("No data available for selected year(s)")
+        
+        
+        # Calculate
+        res <- dat %>%
+                filter(Perioden_freq == "Y",
+                       Bedrijfskenmerken %in% c("T001081")) %>%
+                mutate(
+                        Year = lubridate::year(Perioden_Date),
+                        Friction_period_days = yeardays /
+                                (VervuldeVacatures_3 / OpenstaandeVacatures_1) +
+                                4 * 7,
+                        Friction_period_wks = Friction_period_days / 7
+                ) %>%
+                distinct(
+                        Year,
+                        VervuldeVacatures_3,
+                        OpenstaandeVacatures_1,
+                        Friction_period_days,
+                        Friction_period_wks
+                ) %>%
+                filter(Year %in% years) %>%
+                rename(Filled_vacancies = 2,
+                       Open_vacancies = 3) %>%
+                data.frame()
+        res
+}
+
+#Test
+# x <- FrictionPeriods(folderpath = "../../01_data/friction_period/", download = T,
+#                 years = 2010:2014)
+# x
+
+```
+

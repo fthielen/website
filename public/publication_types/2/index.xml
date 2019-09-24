@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2 on data_fR@</title>
+    <link>/publication_types/2/</link>
+    <description>Recent content in 2 on data_fR@</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Nov 2018 00:00:00 +0200</lastBuildDate>
+    
+	<atom:link href="/publication_types/2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Second‐line treatment for acute graft‐versus‐host disease with mesenchymal stromal cells: A decision model.</title>
+      <link>/publication/gvhd-model/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 +0200</pubDate>
+      
+      <guid>/publication/gvhd-model/</guid>
+      <description>In this article we describe the development and simulation of a decision model for the second-line treatment of acute GvHD.</description>
+    </item>
+    
+    <item>
+      <title>Obinutuzumab in Combination with Chemotherapy for the First-Line Treatment of Patients with Advanced Follicular Lymphoma: An Evidence Review Group Evaluation of the NICE Single Technology Appraisal</title>
+      <link>/publication/sta-obin/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0200</pubDate>
+      
+      <guid>/publication/sta-obin/</guid>
+      <description>An Evidence Review Group Evaluation of the NICE Single Technology Appraisal for obinutuzumab in combination with chemotherapy for first-line treatment of advanced follicular lymphoma.</description>
+    </item>
+    
+    <item>
+      <title>How to prepare a systematic review of economic evaluations for clinical practice guidelines: database selection and search strategy development (part 2/3)</title>
+      <link>/publication/sr-ee/</link>
+      <pubDate>Tue, 01 Nov 2016 00:00:00 +0200</pubDate>
+      
+      <guid>/publication/sr-ee/</guid>
+      <description>A short paper on how to prepare a systematic literature review of economic evaluations.</description>
+    </item>
+    
+  </channel>
+</rss>

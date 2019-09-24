@@ -1,0 +1,78 @@
+---
+title: Selecting an appropriate combination of drug dosages with R
+author: admin
+date: '2019-06-11'
+slug: selecting-appropriate-combination-of-drug-dosages-with-r
+categories:
+  - R
+tags:
+  - Decision Modelling
+image:
+  caption: ''
+  focal_point: ''
+---
+
+
+
+<p>Calculating appropriate drug costs is crucial for every health economic evaluation.
+I remember the first time I had to calculate drug costs. Back then, working with
+Microsoft Excel for a <em>real</em> project was excitingly new for me. However,
+I got quickly frustrated with this seemingly simple task. The price for a ‘simple’
+dose of let’s say 125mg per patient can be calculated in different ways.
+Especially, when I had chose a combination from a plethora of smaller doses. It
+may happen that you may have to combine smaller doses of 2.5mg, 5mg, 15mg, 50mg
+or 100mg to derive the needed 125mg. Maybe you would chose for 100mg + 50mg and
+discard or reuse the rest. Or you go for 100mg + 15mg + 5mg + 5mg. Many more
+options are possible and your decision wouldn’t really matter if the price of
+larger mg’s would be a multiple of the smaller doses. But this is not always the
+case. Check out the Dutch prices for <strong>hydroxicarbamide</strong> or <strong>lenalidomide</strong> on
+<a href="https://www.medicijnkosten.nl">medicijnkosten.nl</a> (see Table @(tab:med-price)).</p>
+<pre class="r"><code>data.frame(Name = c(rep(&quot;Hydroxycarbamide&quot;, 2)))</code></pre>
+<pre><code>##               Name
+## 1 Hydroxycarbamide
+## 2 Hydroxycarbamide</code></pre>
+<p>The calculation of drugs costs can be quite daunting since many medications are
+often substituted with some kind of ‘condition’. Chemotherapies for instance, are
+often given depending on the body surface area or per kilogram body weight.</p>
+<p>In a deterministic analysis, one would first determine the needed dose</p>
+<p>Test</p>
+<pre class="r"><code># Dosing function
+
+DosingFun &lt;- function(target, combi){
+        new.target &lt;- loop.target &lt;- ceiling(target / combi[1]) * combi[1]
+        
+        i &lt;- 1
+        dose &lt;- vector()
+        quant &lt;- vector()
+        
+        
+        while(loop.target &gt; 0){
+                fills &lt;- floor(loop.target / combi)
+                dose[i] &lt;- ifelse(any(fills == 0),
+                                  combi[which(fills == 0)[[1]] - 1],
+                                  combi[length(combi)])
+                
+                
+                quant[i] &lt;- ifelse(any(fills == 0),
+                                   fills[which(fills == 0)[[1]] - 1],
+                                   fills[length(fills)])
+                
+                dosefills &lt;- fills * combi
+                
+                
+                loop.target &lt;- loop.target - last(dosefills[dosefills &gt; 0])
+                loop.target
+                
+                i &lt;-  i + 1
+                i
+        }
+        waste &lt;- new.target - target
+        df &lt;- cbind(dose, quant) %&gt;% data.frame()
+        
+        res &lt;- list(df = df,
+                    waste = waste)
+        
+}
+
+# Test
+#x &lt;- DosingFun(target = 133, combi = c(25, 100))</code></pre>

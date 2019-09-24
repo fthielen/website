@@ -1,0 +1,42 @@
+---
+abstract: "The National Institute for Health and Care Excellence (NICE), as part of the institute’s single technology appraisal (STA) process, invited the company that makes obinutuzumab (Roche Products Limited) to submit evidence of the clinical and cost efectiveness of the drug in combination with chemotherapy, with or without obinutuzumab as maintenance therapy for adult patients with untreated, advanced follicular lymphoma (FL) in the UK. Kleijnen Systematic Reviews Ltd (KSR), in collaboration with Erasmus University Rotterdam, was commissioned to act as the Evidence Review Group (ERG). This paper describes the company’s submission, the ERG review, and NICE’s subsequent decisions. The clinical evidence was derived from two phase III, company-sponsored, randomised, open-label studies. Most evidence on obinutuzumab was based on the GALLIUM trial that compared obinutuzumab in combination with chemotherapy as induction followed by obinutuzumab maintenance monotherapy with rituximab in combination with chemotherapy as induction followed by rituximab maintenance monotherapy in previously untreated patients with FL (grades 1–3a). Long-term clinical evidence was based on the PRIMA trial, studying the beneft of two years of rituximab maintenance after frst-line treatment in patients with FL. The cost-efectiveness evidence submitted by the company relied on a partitioned survival cost-utility model, implemented in Microsoft® Excel. The base-case incremental cost-efectiveness ratio (ICER) presented in the company submission was <£20,000 per quality-adjusted life-year (QALY) gained. Although the ERG concluded that the economic model met the NICE reference case to a reasonable extent, some errors were identifed and several assumptions made by the company were challenged. A new base-case scenario produced by the ERG suggested an ICER that was higher than the company base case, but still below £30,000 per QALY gained. However, some ERG scenario analyses were close to or even above the threshold. This was the case in particular for assuming a treatment efect that did not extend beyond trial follow-up. These results led to an initial negative recommendation by the appraisal committee. Subsequently, the company submitted a revised base case focusing on patients at intermediate or high risk of premature mortality. Simultaneously, a further price discount for obinutuzumab was granted. In addition to the company’s revised base case, the ERG suggested a restriction of the treatment efect to 5 years and implemented biosimilar uptake and cheaper prices for rituximab. All of these adjustments did not exceed £30,000 per QALY gained and therefore the use of obinutuzumab for patients with advanced FL and a Follicular Lymphoma International Predictive Index (FLIPI) score of two or more could be recommended."
+authors:
+- Frederick Thielen
+- Nasuh Büyükkaramikli
+- Rob Riemsma
+- Debra Fayter
+- Nigel Armstrong
+- Ching-Yun Wei
+- Vanesa Huertas Carrera
+- Kate Misso
+- Gill Worthy
+- Jos Kleijnen
+- Isaac Corro Ramos
+date: "2018-01-01T00:00:00+02:00"
+doi: "dx.doi.org/10.1007/s40273-018-0740-4"
+featured: false
+image:
+  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/jdD8gXaTZsc)'
+  focal_point: ""
+projects: []
+publication: '*PharmacoEconomics*(2018)'
+publication_short: "Obinutuzumab with Chemotherapy for the First-Line Treatment of Advanced Follicular Lymphoma"
+publication_types:
+- "2"
+slides: example
+summary: "An Evidence Review Group Evaluation of the NICE Single Technology Appraisal for obinutuzumab in combination with chemotherapy for first-line treatment of advanced follicular lymphoma."
+tags:
+- NICE
+- Follicular Lymphoma
+- Economic Evaluation
+title: "Obinutuzumab in Combination with Chemotherapy for the First-Line Treatment of Patients with Advanced Follicular Lymphoma: An Evidence Review Group Evaluation of the NICE Single Technology Appraisal"
+url_code: ""
+url_dataset: ""
+url_pdf: http://arxiv.org/pdf/1512.04133v1
+url_poster: ""
+url_project: ""
+url_slides: ""
+url_source: ""
+url_video: ""
+---
+

@@ -1,0 +1,105 @@
+---
+date: "2018-09-09T00:00:00+02:00"
+draft: false
+linktitle: Any link
+menu:
+  tutorial:
+    parent: CBS EE R
+    weight: 1
+title: CBS data for Economic Evaluations in R
+toc: true
+type: docs
+---
+
+
+<div id="TOC">
+true
+</div>
+
+<pre class="r"><code># Function to calculate the friction period with CBS data
+library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>FrictionPeriods &lt;- function(years,
+                            industry = &quot;T001081&quot;,
+                            folderpath = NULL,
+                            download = T,
+                            yeardays = 365.25,
+                            ...) {
+        
+        # Required libraroes
+        require(&quot;dplyr&quot;)
+        require(&quot;cbsodataR&quot;)
+        require(&quot;lubridate&quot;)
+        
+        # Check path input parameter
+        if (download &amp; is.null(folderpath))
+                stop(&quot;Specify folderpath for downloaded CBS data or set download to FALSE&quot;)
+        
+        # Set path
+        path1 &lt;- folderpath
+        path2 &lt;- paste0(folderpath, &quot;data.Rda&quot;)
+        
+        # Create directory if not existing
+        if (!dir.exists(path1))
+                dir.create(path1)
+        
+        # Download data
+        if (download) {
+                if (!file.exists(path2)) {
+                        dat.cbs &lt;- cbsodataR::cbs_get_data(&quot;80472NED&quot;)
+                        saveRDS(dat.cbs, file = path2)
+                } else {
+                        dat.cbs &lt;- readRDS(path2)
+                }
+                
+        } else{
+                dat.cbs &lt;- cbsodataR::cbs_get_data(&quot;80472NED&quot;)
+        }
+        
+        # Add column labels and dates
+        dat &lt;- dat.cbs %&gt;%
+                cbsodataR::cbs_add_label_columns() %&gt;%
+                cbsodataR::cbs_add_date_column()
+        
+        # Check for years input parameter
+        if(any(!years %in% year(
+                dat[dat$Perioden_freq == &quot;Y&quot;, &quot;Perioden_Date&quot;][[1]])))
+                stop(&quot;No data available for selected year(s)&quot;)
+        
+        
+        # Calculate
+        res &lt;- dat %&gt;%
+                filter(Perioden_freq == &quot;Y&quot;,
+                       Bedrijfskenmerken %in% c(&quot;T001081&quot;)) %&gt;%
+                mutate(
+                        Year = lubridate::year(Perioden_Date),
+                        Friction_period_days = yeardays /
+                                (VervuldeVacatures_3 / OpenstaandeVacatures_1) +
+                                4 * 7,
+                        Friction_period_wks = Friction_period_days / 7
+                ) %&gt;%
+                distinct(
+                        Year,
+                        VervuldeVacatures_3,
+                        OpenstaandeVacatures_1,
+                        Friction_period_days,
+                        Friction_period_wks
+                ) %&gt;%
+                filter(Year %in% years) %&gt;%
+                rename(Filled_vacancies = 2,
+                       Open_vacancies = 3) %&gt;%
+                data.frame()
+        res
+}
+
+#Test
+# x &lt;- FrictionPeriods(folderpath = &quot;../../01_data/friction_period/&quot;, download = T,
+#                 years = 2010:2014)
+# x</code></pre>

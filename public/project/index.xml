@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on data_fR@</title>
+    <link>/project/</link>
+    <description>Recent content in Projects on data_fR@</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 May 2019 00:00:00 +0200</lastBuildDate>
+    
+	<atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The RETHRIM project</title>
+      <link>/project/external-project/</link>
+      <pubDate>Thu, 23 May 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/project/external-project/</guid>
+      <description>RETHRIM is an EU sponsored research consortium that has initiated a phase III clinical trial to investigate the usefulness of Mesenchymal Stromal Cells for the treatment of Graft-versus-Host-Disease.</description>
+    </item>
+    
+  </channel>
+</rss>

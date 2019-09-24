@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Auth2 on data_fR@</title>
+    <link>/authors/auth2/</link>
+    <description>Recent content in Auth2 on data_fR@</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Sep 2015 00:00:00 +0200</lastBuildDate>
+    
+	<atom:link href="/authors/auth2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Obinutuzumab in Combination with Chemotherapy for the First-Line Treatment of Patients with Advanced Follicular Lymphoma: An Evidence Review Group Evaluation of the NICE Single Technology Appraisal</title>
+      <link>/publication/sr-ee/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0200</pubDate>
+      
+      <guid>/publication/sr-ee/</guid>
+      <description>sum.</description>
+    </item>
+    
+  </channel>
+</rss>

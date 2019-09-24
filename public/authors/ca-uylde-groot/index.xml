@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CA Uyl‐de Groot on data_fR@</title>
+    <link>/authors/ca-uylde-groot/</link>
+    <description>Recent content in CA Uyl‐de Groot on data_fR@</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Nov 2018 00:00:00 +0200</lastBuildDate>
+    
+	<atom:link href="/authors/ca-uylde-groot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Second‐line treatment for acute graft‐versus‐host disease with mesenchymal stromal cells: A decision model.</title>
+      <link>/publication/gvhd-model/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 +0200</pubDate>
+      
+      <guid>/publication/gvhd-model/</guid>
+      <description>In this article we describe the development and simulation of a decision model for the second-line treatment of acute GvHD.</description>
+    </item>
+    
+  </channel>
+</rss>

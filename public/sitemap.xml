@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/talk/example/</loc>
+    <lastmod>2030-06-01T13:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/</loc>
+    <lastmod>2030-06-01T13:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2030-06-01T13:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/decision-modelling/</loc>
+    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/selecting-appropriate-combination-of-drug-dosages-with-r/</loc>
+    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/cea/</loc>
+    <lastmod>2019-05-23T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/project/</loc>
+    <lastmod>2019-05-23T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/project/external-project/</loc>
+    <lastmod>2019-05-23T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/test-post/</loc>
+    <lastmod>2019-05-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/slides/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/slides/example/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication_types/2/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/a-redondo/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/ac-lankester/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/ca-uylde-groot/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/economic-evaluation/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/f-locatelli/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/f-s%C3%A1nchezguijo/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/fg-calkoen/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/gvhd/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/hm-blommestein/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/jj-zwaginga/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/k-le-blanc/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/lem-oosten/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/m-algeri/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/publication_types/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/publication/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication/gvhd-model/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/we-fibbe/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/admin/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tutorial/cbs-friction/</loc>
+    <lastmod>2018-09-09T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tutorial/example/</loc>
+    <lastmod>2018-09-09T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tutorial/</loc>
+    <lastmod>2018-09-09T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/privacy/</loc>
+    <lastmod>2018-06-28T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/ching-yun-wei/</loc>
+    <lastmod>2018-01-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/debra-fayter/</loc>
+    <lastmod>2018-01-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/follicular-lymphoma/</loc>
+    <lastmod>2018-01-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/frederick-thielen/</loc>
+    <lastmod>2018-01-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/gill-worthy/</loc>
+    <lastmod>2018-01-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/isaac-corro-ramos/</loc>
+    <lastmod>2018-01-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/jos-kleijnen/</loc>
+    <lastmod>2018-01-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/kate-misso/</loc>
+    <lastmod>2018-01-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/nice/</loc>
+    <lastmod>2018-01-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/nasuh-b%C3%BCy%C3%BCkkaramikli/</loc>
+    <lastmod>2018-01-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/nigel-armstrong/</loc>
+    <lastmod>2018-01-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/publication/sta-obin/</loc>
+    <lastmod>2018-01-01T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/rob-riemsma/</loc>
+    <lastmod>2018-01-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/vanesa-huertas-carrera/</loc>
+    <lastmod>2018-01-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/gapg-van-mastrigt/</loc>
+    <lastmod>2016-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/hjm-majoie/</loc>
+    <lastmod>2016-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/publication/sr-ee/</loc>
+    <lastmod>2016-11-01T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/j-kleijnen/</loc>
+    <lastmod>2016-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/lt-burgers/</loc>
+    <lastmod>2016-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/smaa-evers/</loc>
+    <lastmod>2016-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/systematic-literature-review/</loc>
+    <lastmod>2016-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/wm-bramer/</loc>
+    <lastmod>2016-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/2015-07-23-r-rmarkdown/</loc>
+    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r-markdown/</loc>
+    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/plot/</loc>
+    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/regression/</loc>
+    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/author/admin/</loc>
+  </url>
+  
+  <url>
+    <loc>/tutorial/rethrim/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/author/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
