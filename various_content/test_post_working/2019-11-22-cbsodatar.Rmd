@@ -18,9 +18,9 @@ biblio-style: numeric
 csl: [references/nature.csl]
 ---
 ```{r setup, echo = FALSE, warning=FALSE, message=FALSE}
-library("knitr")
-library("dplyr")
-knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
+# library("knitr")
+# library("dplyr")
+# knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
 ```
 
 
@@ -77,8 +77,8 @@ I also load **dplyr** for an easy-to-read data wrangling and `pipes`.
 
 ```{r echo=TRUE}
 # install.packages("cbsodataR")
-library("cbsodataR")
-library("dplyr")
+# library("cbsodataR")
+# library("dplyr")
 ```
 
 With the **cbsodataR** we can download most (if not all) publicly available
@@ -105,14 +105,14 @@ We can now download this data into our `data` folder (or any other folder) with
 `cbs_get_data`:
 
 ```{r dowload, echo = TRUE}
-df_cbs_cpi <- cbsodataR::cbs_get_data(id = "70936ned",
-                                      dir = here::here("data/cbs_cpi/"))
+# df_cbs_cpi <- cbsodataR::cbs_get_data(id = "70936ned",
+#                                       dir = here::here("data/cbs_cpi/"))
 ```
 
 Let's have a look at the first rows.
 
 ```{r}
-head(df_cbs_cpi)
+#head(df_cbs_cpi)
 ```
 
 We see CPI data as from january 1963 (1963MM01) for each month. But what we are
@@ -131,10 +131,10 @@ The **cbsodataR** function `cbs_add_date_column()` is adding a few columns to
 our data of class `date` and `factor`. We can use this as follows:
 
 ```{r}
-df_cbs_cpi <- df_cbs_cpi %>% 
-        cbsodataR::cbs_add_date_column(.)
-
-head(df_cbs_cpi)
+# df_cbs_cpi <- df_cbs_cpi %>% 
+#         cbsodataR::cbs_add_date_column(.)
+# 
+# head(df_cbs_cpi)
 ```
 
 Now we also have the columns `Perioden_Date` and `Period_freq`.
@@ -144,8 +144,8 @@ Filtering for years has just become easier, as we only need to filter column
 
 Let's do it:
 ```{r}
-df_cbs_cpi_yr <- df_cbs_cpi %>% 
-        dplyr::filter(Perioden_freq == "Y")
+# df_cbs_cpi_yr <- df_cbs_cpi %>% 
+#         dplyr::filter(Perioden_freq == "Y")
 ```
 
 Now that we have all the data we need, we can calculate the CPI of each year,
@@ -153,8 +153,8 @@ relative to a reference year. From the CBS data we just downloaded, the most
 recent year is 2018. So this will also be out reference year.
 
 ```{r}
-df_cbs_cpi_yr %>% 
-        mutate(factor = 1 + JaarmutatieCPI_1 / 100)
+# df_cbs_cpi_yr %>% 
+#         mutate(factor = 1 + JaarmutatieCPI_1 / 100)
 ```
 
 
@@ -169,11 +169,11 @@ need. In the following, I will create a column with the years only using the
 package **lubridate**. Then I will only keep columns of interest.
 
 ```{r}
-df_cbs_cpi_yr %>% 
-        # create column
-        mutate(year = lubridate::year(Perioden_Date),
-               factor = 1 + JaarmutatieCPI_1 / 100) %>% 
-        select(year, factor)
+# df_cbs_cpi_yr %>% 
+#         # create column
+#         mutate(year = lubridate::year(Perioden_Date),
+#                factor = 1 + JaarmutatieCPI_1 / 100) %>% 
+#         select(year, factor)
 ```
 
 

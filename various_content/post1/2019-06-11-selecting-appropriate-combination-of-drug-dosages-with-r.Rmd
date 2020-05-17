@@ -26,7 +26,7 @@ case. Check out the Dutch prices for **hydroxicarbamide** or **lenalidomide** on
 [medicijnkosten.nl](https://www.medicijnkosten.nl) (see Table @\ref(tab:med-price)).
 
 ```{r med-price}
-data.frame(Name = c(rep("Hydroxycarbamide", 2)))
+#data.frame(Name = c(rep("Hydroxycarbamide", 2)))
 ```
 
 The calculation of drugs costs can be quite daunting since many medications are
@@ -40,41 +40,41 @@ Test
 ```{r}
 # Dosing function
 
-DosingFun <- function(target, combi){
-        new.target <- loop.target <- ceiling(target / combi[1]) * combi[1]
-        
-        i <- 1
-        dose <- vector()
-        quant <- vector()
-        
-        
-        while(loop.target > 0){
-                fills <- floor(loop.target / combi)
-                dose[i] <- ifelse(any(fills == 0),
-                                  combi[which(fills == 0)[[1]] - 1],
-                                  combi[length(combi)])
-                
-                
-                quant[i] <- ifelse(any(fills == 0),
-                                   fills[which(fills == 0)[[1]] - 1],
-                                   fills[length(fills)])
-                
-                dosefills <- fills * combi
-                
-                
-                loop.target <- loop.target - last(dosefills[dosefills > 0])
-                loop.target
-                
-                i <-  i + 1
-                i
-        }
-        waste <- new.target - target
-        df <- cbind(dose, quant) %>% data.frame()
-        
-        res <- list(df = df,
-                    waste = waste)
-        
-}
+# DosingFun <- function(target, combi){
+#         new.target <- loop.target <- ceiling(target / combi[1]) * combi[1]
+#         
+#         i <- 1
+#         dose <- vector()
+#         quant <- vector()
+#         
+#         
+#         while(loop.target > 0){
+#                 fills <- floor(loop.target / combi)
+#                 dose[i] <- ifelse(any(fills == 0),
+#                                   combi[which(fills == 0)[[1]] - 1],
+#                                   combi[length(combi)])
+#                 
+#                 
+#                 quant[i] <- ifelse(any(fills == 0),
+#                                    fills[which(fills == 0)[[1]] - 1],
+#                                    fills[length(fills)])
+#                 
+#                 dosefills <- fills * combi
+#                 
+#                 
+#                 loop.target <- loop.target - last(dosefills[dosefills > 0])
+#                 loop.target
+#                 
+#                 i <-  i + 1
+#                 i
+#         }
+#         waste <- new.target - target
+#         df <- cbind(dose, quant) %>% data.frame()
+#         
+#         res <- list(df = df,
+#                     waste = waste)
+#         
+# }
 
 # Test
 #x <- DosingFun(target = 133, combi = c(25, 100))

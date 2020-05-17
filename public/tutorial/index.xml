@@ -12,15 +12,6 @@
     
     
     <item>
-      <title>CBS data for Economic Evaluations in R</title>
-      <link>/tutorial/cbs-friction/</link>
-      <pubDate>Sun, 09 Sep 2018 00:00:00 +0200</pubDate>
-      
-      <guid>/tutorial/cbs-friction/</guid>
-      <description>true  # Function to calculate the friction period with CBS data library(dplyr) ## ## Attaching package: &amp;#39;dplyr&amp;#39; ## The following objects are masked from &amp;#39;package:stats&amp;#39;: ## ## filter, lag ## The following objects are masked from &amp;#39;package:base&amp;#39;: ## ## intersect, setdiff, setequal, union FrictionPeriods &amp;lt;- function(years, industry = &amp;quot;T001081&amp;quot;, folderpath = NULL, download = T, yeardays = 365.25, ...) { # Required libraroes require(&amp;quot;dplyr&amp;quot;) require(&amp;quot;cbsodataR&amp;quot;) require(&amp;quot;lubridate&amp;quot;) # Check path input parameter if (download &amp;amp; is.</description>
-    </item>
-    
-    <item>
       <title>Example Page</title>
       <link>/tutorial/example/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0200</pubDate>
