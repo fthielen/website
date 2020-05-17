@@ -1,0 +1,7 @@
+# netlify.toml
+# from https://www.garrickadenbuie.com/blog/blogdown-netlify-new-post-workflow/
+[context.deploy-preview]
+command = "hugo -b $DEPLOY_PRIME_URL --buildFuture"
+
+[context.branch-deploy]
+command = "hugo -b $DEPLOY_PRIME_URL --buildFuture"
