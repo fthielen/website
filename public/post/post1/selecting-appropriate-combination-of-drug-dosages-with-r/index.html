@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
@@ -29,10 +27,10 @@
   
     
   
-  <meta name="description" content="PhD student Health Technology Assessment">
+  <meta name="description" content="Calculating appropriate drug costs is crucial for every health economic evaluation. I remember the first time I had to calculate drug costs. Back then, working with Microsoft Excel for a real project was excitingly new for me. However, I got quickly frustrated with this seemingly simple task. The price for a ‘simple’ dose of let’s say 125mg per patient can be calculated in different ways. Especially, when I had chose a combination from a plethora of smaller doses.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/publication_types/2/">
+  <link rel="alternate" hreflang="en-us" href="/post/post1/selecting-appropriate-combination-of-drug-dosages-with-r/">
 
   
 
@@ -102,15 +100,12 @@
   
 
   
-  <link rel="alternate" href="/publication_types/2/index.xml" type="application/rss+xml" title="data_fR@">
-  <link rel="feed" href="/publication_types/2/index.xml" type="application/rss+xml" title="data_fR@">
-  
 
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/publication_types/2/">
+  <link rel="canonical" href="/post/post1/selecting-appropriate-combination-of-drug-dosages-with-r/">
 
   
   
@@ -122,19 +117,21 @@
   <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="data_fR@">
-  <meta property="og:url" content="/publication_types/2/">
-  <meta property="og:title" content="2 | data_fR@">
-  <meta property="og:description" content="PhD student Health Technology Assessment"><meta property="og:image" content="/img/icon-192.png">
+  <meta property="og:url" content="/post/post1/selecting-appropriate-combination-of-drug-dosages-with-r/">
+  <meta property="og:title" content="Selecting an appropriate combination of drug dosages with R | data_fR@">
+  <meta property="og:description" content="Calculating appropriate drug costs is crucial for every health economic evaluation. I remember the first time I had to calculate drug costs. Back then, working with Microsoft Excel for a real project was excitingly new for me. However, I got quickly frustrated with this seemingly simple task. The price for a ‘simple’ dose of let’s say 125mg per patient can be calculated in different ways. Especially, when I had chose a combination from a plethora of smaller doses."><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2018-11-01T00:00:00&#43;02:00">
+  <meta property="article:published_time" content="2019-06-11T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-06-11T00:00:00&#43;00:00">
   
 
   
 
   
 
-  <title>2 | data_fR@</title>
+  <title>Selecting an appropriate combination of drug dosages with R | data_fR@</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" class="dark">
@@ -297,7 +294,9 @@
 </nav>
 
 
+<article class="article" itemscope itemtype="http://schema.org/Article">
 
+  
 
 
 
@@ -314,55 +313,287 @@
 
   
   
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Selecting an appropriate combination of drug dosages with R</h1>
+
+  
+
   
     
-  
-<div class="universal-wrapper pt-3">
-  <h1 itemprop="name">2</h1>
+
+
+
+<meta content="2019-06-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-06-11 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
 
   
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>Jun 11, 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    2 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder"></i>
+    <a href="/categories/r/">R</a></span>
+  
+
+  
+    
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 </div>
 
 
 
-<div class="universal-wrapper">
-  
+  <div class="article-container">
 
-  
-  
-  <div>
-    <h2><a href="/publication/gvhd-model/">Second‐line treatment for acute graft‐versus‐host disease with mesenchymal stromal cells: A decision model.</a></h2>
-    <div class="article-style">
+    <div class="article-style" itemprop="articleBody">
       
-      In this article we describe the development and simulation of a decision model for the second-line treatment of acute GvHD.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/publication/sta-obin/">Obinutuzumab in Combination with Chemotherapy for the First-Line Treatment of Patients with Advanced Follicular Lymphoma: An Evidence Review Group Evaluation of the NICE Single Technology Appraisal</a></h2>
-    <div class="article-style">
-      
-      An Evidence Review Group Evaluation of the NICE Single Technology Appraisal for obinutuzumab in combination with chemotherapy for first-line treatment of advanced follicular lymphoma.
-      
-    </div>
-  </div>
-  
-  <div>
-    <h2><a href="/publication/sr-ee/">How to prepare a systematic review of economic evaluations for clinical practice guidelines: database selection and search strategy development (part 2/3)</a></h2>
-    <div class="article-style">
-      
-      A short paper on how to prepare a systematic literature review of economic evaluations.
-      
-    </div>
-  </div>
-  
 
-  
 
+<p>Calculating appropriate drug costs is crucial for every health economic evaluation.
+I remember the first time I had to calculate drug costs. Back then, working with
+Microsoft Excel for a <em>real</em> project was excitingly new for me. However,
+I got quickly frustrated with this seemingly simple task. The price for a ‘simple’
+dose of let’s say 125mg per patient can be calculated in different ways.
+Especially, when I had chose a combination from a plethora of smaller doses. It
+may happen that you may have to combine smaller doses of 2.5mg, 5mg, 15mg, 50mg
+or 100mg to derive the needed 125mg. Maybe you would chose for 100mg + 50mg and
+discard or reuse the rest. Or you go for 100mg + 15mg + 5mg + 5mg. Many more
+options are possible and your decision wouldn’t really matter if the price of
+larger mg’s would be a multiple of the smaller doses. But this is not always the
+case. Check out the Dutch prices for <strong>hydroxicarbamide</strong> or <strong>lenalidomide</strong> on
+<a href="https://www.medicijnkosten.nl">medicijnkosten.nl</a> (see Table @(tab:med-price)).</p>
+<pre class="r"><code>data.frame(Name = c(rep(&quot;Hydroxycarbamide&quot;, 2)))</code></pre>
+<pre><code>##               Name
+## 1 Hydroxycarbamide
+## 2 Hydroxycarbamide</code></pre>
+<p>The calculation of drugs costs can be quite daunting since many medications are
+often substituted with some kind of ‘condition’. Chemotherapies for instance, are
+often given depending on the body surface area or per kilogram body weight.</p>
+<p>In a deterministic analysis, one would first determine the needed dose</p>
+<p>Test</p>
+<pre class="r"><code># Dosing function
+
+DosingFun &lt;- function(target, combi){
+        new.target &lt;- loop.target &lt;- ceiling(target / combi[1]) * combi[1]
+        
+        i &lt;- 1
+        dose &lt;- vector()
+        quant &lt;- vector()
+        
+        
+        while(loop.target &gt; 0){
+                fills &lt;- floor(loop.target / combi)
+                dose[i] &lt;- ifelse(any(fills == 0),
+                                  combi[which(fills == 0)[[1]] - 1],
+                                  combi[length(combi)])
+                
+                
+                quant[i] &lt;- ifelse(any(fills == 0),
+                                   fills[which(fills == 0)[[1]] - 1],
+                                   fills[length(fills)])
+                
+                dosefills &lt;- fills * combi
+                
+                
+                loop.target &lt;- loop.target - last(dosefills[dosefills &gt; 0])
+                loop.target
+                
+                i &lt;-  i + 1
+                i
+        }
+        waste &lt;- new.target - target
+        df &lt;- cbind(dose, quant) %&gt;% data.frame()
+        
+        res &lt;- list(df = df,
+                    waste = waste)
+        
+}
+
+# Test
+#x &lt;- DosingFun(target = 133, combi = c(25, 100))</code></pre>
+
+    </div>
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/decision-modelling/">Decision Modelling</a>
+  
 </div>
+
+
+
+    
+      
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<div class="media author-card" itemscope itemtype="http://schema.org/Person">
+  
+  
+  <img class="portrait mr-3" src="/author/admin/avatar_hu25e39bf011acf35ec440191f6b812d6d_411708_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+  
+
+  <div class="media-body">
+    <h5 class="card-title" itemprop="name"><a href="/authors/admin">Frederick W. Thielen</a></h5>
+    <h6 class="card-subtitle">PhD student Health Technology Assessment</h6>
+    
+    <ul class="network-icon" aria-hidden="true">
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="/#contact" >
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://twitter.com/FWThielen" target="_blank" rel="noopener">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://scholar.google.co.uk/citations?hl=de&amp;user=V2-488kAAAAJ" target="_blank" rel="noopener">
+          <i class="ai ai-google-scholar"></i>
+        </a>
+      </li>
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a itemprop="sameAs" href="https://github.com/fthielen" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/publication/gvhd-model/">Second‐line treatment for acute graft‐versus‐host disease with mesenchymal stromal cells: A decision model.</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
 <div class="container">
   <footer class="site-footer">
   
@@ -518,6 +749,4 @@
 
   </body>
 </html>
-
-
 

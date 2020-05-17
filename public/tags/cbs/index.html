@@ -52,7 +52,7 @@
   
   
   
-  <meta name="theme-color" content="#2962ff">
+  <meta name="theme-color" content="hsl(339, 90%, 68%)">
   
 
   
@@ -67,14 +67,12 @@
     
     
     
-      
-    
     
       
       
         
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light">
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" disabled>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark">
         
       
     
@@ -95,7 +93,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/academic.min.a0afe72cd1619525a4d5a4824ac5755e.css">
+  <link rel="stylesheet" href="/css/academic.min.2ef9f7a4c06db867267e9afcb74077b5.css">
 
   
 
@@ -129,7 +127,7 @@
   <meta property="og:description" content="PhD student Health Technology Assessment"><meta property="og:image" content="/img/icon-192.png">
   <meta property="og:locale" content="en-us">
   
-  <meta property="og:updated_time" content="2015-07-23T21:13:14-05:00">
+  <meta property="og:updated_time" content="2019-11-22T00:00:00&#43;00:00">
   
 
   
@@ -139,7 +137,7 @@
   <title>CBS | data_fR@</title>
 
 </head>
-<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" >
+<body id="top" data-spy="scroll" data-target="#TableOfContents" data-offset="71" class="dark">
   <aside class="search-results" id="search">
   <div class="container">
     <section class="search-header">
@@ -172,6 +170,9 @@
 </aside>
 
 
+<link rel="stylesheet" href="/css/vs.css" rel="stylesheet" id="theme-stylesheet">
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 <nav class="navbar navbar-light fixed-top navbar-expand-lg py-0" id="navbar-main">
   <div class="container">
 
@@ -223,25 +224,6 @@
           <a class="nav-link" href="/#posts">
             
             <span>Posts</span>
-            
-          </a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        <li class="nav-item">
-          <a class="nav-link" href="/tutorial/">
-            
-            <span>Tutorials</span>
             
           </a>
         </li>
@@ -351,10 +333,11 @@
   
   
   <div>
-    <h2><a href="/tutorial/cbs_frictionperiod/cbs_frictionperiod/">Using the CBS API to calculate the friction period in R</a></h2>
+    <h2><a href="/post/test_post_working/cbsodatar/">Dutch CBS data for (health) economic models with the </a></h2>
     <div class="article-style">
       
-      # Function to calculate the friction period with CBS data library(dplyr) ## ## Attaching package: &#39;dplyr&#39; ## The following objects are masked from &#39;package:stats&#39;: ## ## filter, lag ## The following objects are masked from &#39;package:base&#39;: ## ## intersect, setdiff, setequal, union library(lubridate) ## ## Attaching package: &#39;lubridate&#39; ## The following object is masked from &#39;package:base&#39;: ## ## date library(cbsodataR) FrictionPeriods &lt;- function(years, industry = &quot;T001081&quot;, folderpath = NULL, download = T, yeardays = 365.
+      TL; DR Learn how to use data from Statistics Netherlands (CBS) for health economic evaluations in R to calculate:
+ the most recent consumer price index (CPI) for the Netherlands   Introduction The Dutch reference manual for health economic evualtions1 is a very handy starting point for most methodologies employed in health economic modelling. It provides many calculation examples and reference prices, which is why it is also the most frequently dowloaded item in my computer (whenever I need it, I ‘quickly’ google it and its link is a PDF file which downloads automcatically [try it]).
       
     </div>
   </div>
