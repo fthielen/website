@@ -190,3 +190,7 @@
 </head>
 <body id="top" data-spy="scroll" data-target="{{ if or .IsHome .Params.widgets }}#navbar-main{{ else }}#TableOfContents{{ end }}" data-offset="71" {{ if not ($scr.Get "light") }}class="dark"{{ end }}>
   {{ partial "search" . }}
+
+<link rel="stylesheet" href="{{"css/vs.css" | absURL}}" rel="stylesheet" id="theme-stylesheet">
+<script src="{{ "js/highlight.pack.js" | absURL }}"></script>
+<script>hljs.initHighlightingOnLoad();</script>

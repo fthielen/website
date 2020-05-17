@@ -1,0 +1,183 @@
+---
+title: 'Dutch CBS data for (health) economic models with the '
+author: admin
+date: '2019-11-22'
+slug: cbsodatar
+categories:
+  - R
+tags:
+  - Economic Evaluation
+  - CBS
+  - CPI
+  - productivity losses
+image:
+  caption: ''
+  focal_point: ''
+bibliography: [references/library.bib]
+biblio-style: numeric
+csl: [references/nature.csl]
+---
+```{r setup, echo = FALSE, warning=FALSE, message=FALSE}
+library("knitr")
+library("dplyr")
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
+```
+
+
+# TL; DR
+Learn how to use data from *Statistics Netherlands (CBS)* for health economic
+evaluations in R to calculate:  
+
+- the most recent consumer price index (CPI) for the Netherlands
+
+# Introduction
+The Dutch reference manual for health economic evualtions [@hakkart-vanroijenKostenhandleidingMethodologieVan2016] is a very handy starting
+point for most methodologies employed in health economic modelling. It provides
+many calculation examples and reference prices, which is why it is also the 
+most frequently dowloaded item in my computer (whenever I need it, I 'quickly' google
+it and its link is a PDF file which downloads automcatically [[try it](https://www.zorginstituutnederland.nl/binaries/zinl/documenten/publicatie/2016/02/29/richtlijn-voor-het-uitvoeren-van-economische-evaluaties-in-de-gezondheidszorg/Richtlijn+voor+het+uitvoeren+van+economische+evaluaties+in+de+gezondheidszorg+%28verdiepingsmodules%29.pdf)]).
+
+The only downside to the manual is that it is static and with every year the stated
+reference prices become older.
+
+The [iMTA Costing Tool](https://www.imta.nl/costingtool/)
+aims at 'updating' these costs and proposes to use the consumer price index (CPI)
+provided by [*Statistics Netherlands (CBS)*](https://opendata.cbs.nl/statline/#/CBS/nl/dataset/70936ned/table?fromstatweb).
+Despite applauding
+the effort of someone gathering all reference prices from the manual to put
+them into an Excel file (most certainly by hand), there are several limitations
+to the tool:
+
+- It is in Dutch
+- It is written in Excel
+- Inflation rates (i.e. the recommended CPI) need to be looked-up externally (link provided in toll and [here](https://opendata.cbs.nl/statline/#/CBS/nl/dataset/70936ned/table?fromstatweb))
+- Inflation rates need to be inserted by hand (see Figure \ref(fig:costing-tool))
+- Updated data is generated in Excel and need to be transferred to the acutal project with copy/paste
+
+```{r costing-tool, fig.cap="Example of setting inflation rates in the iMTA costing tool"}
+include_graphics(path = "/img/costing_tool.png")
+```
+
+## Aim
+In this post, I will demonstrate how you can use the **cbsodataR** package written
+by CBS to 'dynamically' retrieve CPI rates for whatever year(s) you need. If
+you have your data in R, there is no need to extract these data and hence any
+possible errors that may arise from copy/paste can be avoided.
+
+## Assumptions
+There are a couple of assumptions I make for this posts. These are:
+
+- You work in a dedicated R project folder
+- You are familiar with and use the package **here** or you know how to access files within your R-project
+- You are familiar with `pipes` in R and use - or at least understand - them
+
+# Do
+First we need to install the **cbsodataR** package from CRAN via `install.packages("cbsodataR")` and then load it with `library("cbsodataR")`.
+I also load **dplyr** for an easy-to-read data wrangling and `pipes`.
+
+```{r echo=TRUE}
+# install.packages("cbsodataR")
+library("cbsodataR")
+library("dplyr")
+```
+
+With the **cbsodataR** we can download most (if not all) publicly available
+data from the CBS servers. To explore available data tables we can dowload the
+table of content via `cbsodataR::cbs_get_toc()`. This might take a while since
+there a quite some data tables available (more than 4600 at the time of writing
+this post). For this exercise, the table of contents is not relevant as we already
+know what table we need. Therefore, the below code is not run.
+
+```{r toc, echo=TRUE}
+#cbs_toc <- cbsodataR::cbs_get_toc()
+```
+
+There are several ways to find out about the table identifier you need/want. One
+way is to browse the table of contents we just downloaded or by finding the
+table of interest on the CBS website and have a look the its URL. The link in the
+iMTA costing tool (Excel sheet 'Instellingen') directs to:
+
+https://opendata.cbs.nl/statline/#/CBS/nl/dataset/70936ned/table?fromstatweb
+
+The table identifier part of this URL is "70936ned".
+
+We can now download this data into our `data` folder (or any other folder) with
+`cbs_get_data`:
+
+```{r dowload, echo = TRUE}
+df_cbs_cpi <- cbsodataR::cbs_get_data(id = "70936ned",
+                                      dir = here::here("data/cbs_cpi/"))
+```
+
+Let's have a look at the first rows.
+
+```{r}
+head(df_cbs_cpi)
+```
+
+We see CPI data as from january 1963 (1963MM01) for each month. But what we are
+interested in are the data for the entire year. This is also availbale. If we
+look at more than just the `head()` of the data, we see that the years are coded
+as a character value in the column `Perioden`. For 1964 this is `"1964JJ00"`.
+We could no filter the dataset with **dplyr**'s `filter()` function, but then
+we would need to search for the pattern "JJ" whithin `Perioden`. This might be
+prone to errors.
+
+Luckily, **cbsodataR** comes with several functions that make use of the "other"
+data we imported.
+
+## Working with dates
+The **cbsodataR** function `cbs_add_date_column()` is adding a few columns to
+our data of class `date` and `factor`. We can use this as follows:
+
+```{r}
+df_cbs_cpi <- df_cbs_cpi %>% 
+        cbsodataR::cbs_add_date_column(.)
+
+head(df_cbs_cpi)
+```
+
+Now we also have the columns `Perioden_Date` and `Period_freq`.
+
+Filtering for years has just become easier, as we only need to filter column
+`Perioden_feq` for "Y".
+
+Let's do it:
+```{r}
+df_cbs_cpi_yr <- df_cbs_cpi %>% 
+        dplyr::filter(Perioden_freq == "Y")
+```
+
+Now that we have all the data we need, we can calculate the CPI of each year,
+relative to a reference year. From the CBS data we just downloaded, the most
+recent year is 2018. So this will also be out reference year.
+
+```{r}
+df_cbs_cpi_yr %>% 
+        mutate(factor = 1 + JaarmutatieCPI_1 / 100)
+```
+
+
+To calculate CPIs for different years there are many ways to take it from here.
+I will show one which is (hopefully) easily understandable/readable but 
+requires several steps.
+For the unexperienced R user this comes at the benefit of readability but at the
+cost of speed (although this might be negligible).
+
+Let's create a nice and clean `data.frame` and get rid of all the stuff we don't
+need. In the following, I will create a column with the years only using the
+package **lubridate**. Then I will only keep columns of interest.
+
+```{r}
+df_cbs_cpi_yr %>% 
+        # create column
+        mutate(year = lubridate::year(Perioden_Date),
+               factor = 1 + JaarmutatieCPI_1 / 100) %>% 
+        select(year, factor)
+```
+
+
+
+
+
+# References

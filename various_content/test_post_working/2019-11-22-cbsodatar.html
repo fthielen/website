@@ -1,0 +1,185 @@
+---
+title: 'Dutch CBS data for (health) economic models with the '
+author: admin
+date: '2019-11-22'
+slug: cbsodatar
+categories:
+  - R
+tags:
+  - Economic Evaluation
+  - CBS
+  - CPI
+  - productivity losses
+image:
+  caption: ''
+  focal_point: ''
+bibliography: [references/library.bib]
+biblio-style: numeric
+csl: [references/nature.csl]
+---
+
+
+
+<div id="tl-dr" class="section level1">
+<h1>TL; DR</h1>
+<p>Learn how to use data from <em>Statistics Netherlands (CBS)</em> for health economic
+evaluations in R to calculate:</p>
+<ul>
+<li>the most recent consumer price index (CPI) for the Netherlands</li>
+</ul>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>The Dutch reference manual for health economic evualtions<span class="citation"><sup>1</sup></span> is a very handy starting
+point for most methodologies employed in health economic modelling. It provides
+many calculation examples and reference prices, which is why it is also the
+most frequently dowloaded item in my computer (whenever I need it, I ‘quickly’ google
+it and its link is a PDF file which downloads automcatically [<a href="https://www.zorginstituutnederland.nl/binaries/zinl/documenten/publicatie/2016/02/29/richtlijn-voor-het-uitvoeren-van-economische-evaluaties-in-de-gezondheidszorg/Richtlijn+voor+het+uitvoeren+van+economische+evaluaties+in+de+gezondheidszorg+%28verdiepingsmodules%29.pdf">try it</a>]).</p>
+<p>The only downside to the manual is that it is static and with every year the stated
+reference prices become older.</p>
+<p>The <a href="https://www.imta.nl/costingtool/">iMTA Costing Tool</a>
+aims at ‘updating’ these costs and proposes to use the consumer price index (CPI)
+provided by <a href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/70936ned/table?fromstatweb"><em>Statistics Netherlands (CBS)</em></a>.
+Despite applauding
+the effort of someone gathering all reference prices from the manual to put
+them into an Excel file (most certainly by hand), there are several limitations
+to the tool:</p>
+<ul>
+<li>It is in Dutch</li>
+<li>It is written in Excel</li>
+<li>Inflation rates (i.e. the recommended CPI) need to be looked-up externally (link provided in toll and <a href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/70936ned/table?fromstatweb">here</a>)</li>
+<li>Inflation rates need to be inserted by hand (see Figure (fig:costing-tool))</li>
+<li>Updated data is generated in Excel and need to be transferred to the acutal project with copy/paste</li>
+</ul>
+<div class="figure"><span id="fig:costing-tool"></span>
+<img src="/img/costing_tool.png" alt="Example of setting inflation rates in the iMTA costing tool"  />
+<p class="caption">
+Figure 1: Example of setting inflation rates in the iMTA costing tool
+</p>
+</div>
+<div id="aim" class="section level2">
+<h2>Aim</h2>
+<p>In this post, I will demonstrate how you can use the <strong>cbsodataR</strong> package written
+by CBS to ‘dynamically’ retrieve CPI rates for whatever year(s) you need. If
+you have your data in R, there is no need to extract these data and hence any
+possible errors that may arise from copy/paste can be avoided.</p>
+</div>
+<div id="assumptions" class="section level2">
+<h2>Assumptions</h2>
+<p>There are a couple of assumptions I make for this posts. These are:</p>
+<ul>
+<li>You work in a dedicated R project folder</li>
+<li>You are familiar with and use the package <strong>here</strong> or you know how to access files within your R-project</li>
+<li>You are familiar with <code>pipes</code> in R and use - or at least understand - them</li>
+</ul>
+</div>
+</div>
+<div id="do" class="section level1">
+<h1>Do</h1>
+<p>First we need to install the <strong>cbsodataR</strong> package from CRAN via <code>install.packages(&quot;cbsodataR&quot;)</code> and then load it with <code>library(&quot;cbsodataR&quot;)</code>.
+I also load <strong>dplyr</strong> for an easy-to-read data wrangling and <code>pipes</code>.</p>
+<pre class="r"><code># install.packages(&quot;cbsodataR&quot;)
+library(&quot;cbsodataR&quot;)
+library(&quot;dplyr&quot;)</code></pre>
+<p>With the <strong>cbsodataR</strong> we can download most (if not all) publicly available
+data from the CBS servers. To explore available data tables we can dowload the
+table of content via <code>cbsodataR::cbs_get_toc()</code>. This might take a while since
+there a quite some data tables available (more than 4600 at the time of writing
+this post). For this exercise, the table of contents is not relevant as we already
+know what table we need. Therefore, the below code is not run.</p>
+<pre class="r"><code>#cbs_toc &lt;- cbsodataR::cbs_get_toc()</code></pre>
+<p>There are several ways to find out about the table identifier you need/want. One
+way is to browse the table of contents we just downloaded or by finding the
+table of interest on the CBS website and have a look the its URL. The link in the
+iMTA costing tool (Excel sheet ‘Instellingen’) directs to:</p>
+<p><a href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/70936ned/table?fromstatweb" class="uri">https://opendata.cbs.nl/statline/#/CBS/nl/dataset/70936ned/table?fromstatweb</a></p>
+<p>The table identifier part of this URL is “70936ned”.</p>
+<p>We can now download this data into our <code>data</code> folder (or any other folder) with
+<code>cbs_get_data</code>:</p>
+<pre class="r"><code>df_cbs_cpi &lt;- cbsodataR::cbs_get_data(id = &quot;70936ned&quot;,
+                                      dir = here::here(&quot;data/cbs_cpi/&quot;))</code></pre>
+<p>Let’s have a look at the first rows.</p>
+<pre><code>## # A tibble: 6 x 3
+##   Perioden JaarmutatieCPI_1 JaarmutatieCPIAfgeleid_2
+##   &lt;chr&gt;               &lt;dbl&gt;                    &lt;dbl&gt;
+## 1 1963MM01              3.9                       NA
+## 2 1963MM02              5.8                       NA
+## 3 1963MM03              4.8                       NA
+## 4 1963MM04              1.9                       NA
+## 5 1963MM05              2.8                       NA
+## 6 1963MM06              1.9                       NA</code></pre>
+<p>We see CPI data as from january 1963 (1963MM01) for each month. But what we are
+interested in are the data for the entire year. This is also availbale. If we
+look at more than just the <code>head()</code> of the data, we see that the years are coded
+as a character value in the column <code>Perioden</code>. For 1964 this is <code>&quot;1964JJ00&quot;</code>.
+We could no filter the dataset with <strong>dplyr</strong>’s <code>filter()</code> function, but then
+we would need to search for the pattern “JJ” whithin <code>Perioden</code>. This might be
+prone to errors.</p>
+<p>Luckily, <strong>cbsodataR</strong> comes with several functions that make use of the “other”
+data we imported.</p>
+<div id="working-with-dates" class="section level2">
+<h2>Working with dates</h2>
+<p>The <strong>cbsodataR</strong> function <code>cbs_add_date_column()</code> is adding a few columns to
+our data of class <code>date</code> and <code>factor</code>. We can use this as follows:</p>
+<pre><code>## # A tibble: 6 x 5
+##   Perioden Perioden_Date Perioden_freq JaarmutatieCPI_1 JaarmutatieCPIAfgeleid_2
+##   &lt;chr&gt;    &lt;date&gt;        &lt;fct&gt;                    &lt;dbl&gt;                    &lt;dbl&gt;
+## 1 1963MM01 1963-01-01    M                          3.9                       NA
+## 2 1963MM02 1963-02-01    M                          5.8                       NA
+## 3 1963MM03 1963-03-01    M                          4.8                       NA
+## 4 1963MM04 1963-04-01    M                          1.9                       NA
+## 5 1963MM05 1963-05-01    M                          2.8                       NA
+## 6 1963MM06 1963-06-01    M                          1.9                       NA</code></pre>
+<p>Now we also have the columns <code>Perioden_Date</code> and <code>Period_freq</code>.</p>
+<p>Filtering for years has just become easier, as we only need to filter column
+<code>Perioden_feq</code> for “Y”.</p>
+<p>Let’s do it:</p>
+<p>Now that we have all the data we need, we can calculate the CPI of each year,
+relative to a reference year. From the CBS data we just downloaded, the most
+recent year is 2018. So this will also be out reference year.</p>
+<pre><code>## # A tibble: 57 x 6
+##    Perioden Perioden_Date Perioden_freq JaarmutatieCPI_1 JaarmutatieCPIA… factor
+##    &lt;chr&gt;    &lt;date&gt;        &lt;fct&gt;                    &lt;dbl&gt;            &lt;dbl&gt;  &lt;dbl&gt;
+##  1 1963JJ00 1963-01-01    Y                          3.8               NA   1.04
+##  2 1964JJ00 1964-01-01    Y                          5.5               NA   1.06
+##  3 1965JJ00 1965-01-01    Y                          5.2               NA   1.05
+##  4 1966JJ00 1966-01-01    Y                          5.8               NA   1.06
+##  5 1967JJ00 1967-01-01    Y                          3.1               NA   1.03
+##  6 1968JJ00 1968-01-01    Y                          3.7               NA   1.04
+##  7 1969JJ00 1969-01-01    Y                          7.5               NA   1.08
+##  8 1970JJ00 1970-01-01    Y                          4.4               NA   1.04
+##  9 1971JJ00 1971-01-01    Y                          7.6               NA   1.08
+## 10 1972JJ00 1972-01-01    Y                          7.8               NA   1.08
+## # … with 47 more rows</code></pre>
+<p>To calculate CPIs for different years there are many ways to take it from here.
+I will show one which is (hopefully) easily understandable/readable but
+requires several steps.
+For the unexperienced R user this comes at the benefit of readability but at the
+cost of speed (although this might be negligible).</p>
+<p>Let’s create a nice and clean <code>data.frame</code> and get rid of all the stuff we don’t
+need. In the following, I will create a column with the years only using the
+package <strong>lubridate</strong>. Then I will only keep columns of interest.</p>
+<pre><code>## # A tibble: 57 x 2
+##     year factor
+##    &lt;dbl&gt;  &lt;dbl&gt;
+##  1  1963   1.04
+##  2  1964   1.06
+##  3  1965   1.05
+##  4  1966   1.06
+##  5  1967   1.03
+##  6  1968   1.04
+##  7  1969   1.08
+##  8  1970   1.04
+##  9  1971   1.08
+## 10  1972   1.08
+## # … with 47 more rows</code></pre>
+</div>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references">
+<div id="ref-hakkart-vanroijenKostenhandleidingMethodologieVan2016">
+<p>1. Hakkart-van Roijen, L., van der Linden, N., Bouwmans, C., Kanter, T. &amp; Swan Tan, S. Kostenhandleiding: Methodologie van kostenonderzoek en referentieprijzen voor economische evaluaties in de gezondheidszorg. (Bijlage 1). (2016).</p>
+</div>
+</div>
+</div>
