@@ -6,19 +6,10 @@
     <description>Recent content in Decision Modelling on data_fR@</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Nov 2018 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="/tags/decision-modelling/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Selecting an appropriate combination of drug dosages with R</title>
-      <link>/post/selecting-appropriate-combination-of-drug-dosages-with-r/</link>
-      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/selecting-appropriate-combination-of-drug-dosages-with-r/</guid>
-      <description>Calculating appropriate drug costs is crucial for every health economic evaluation. I remember the first time I had to calculate drug costs. Back then, working with Microsoft Excel for a real project was excitingly new for me. However, I got quickly frustrated with this seemingly simple task. The price for a ‘simple’ dose of let’s say 125mg per patient can be calculated in different ways. Especially, when I had chose a combination from a plethora of smaller doses.</description>
-    </item>
     
     <item>
       <title>Second‐line treatment for acute graft‐versus‐host disease with mesenchymal stromal cells: A decision model.</title>
