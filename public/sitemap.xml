@@ -19,40 +19,6 @@
   </url>
   
   <url>
-    <loc>/categories/</loc>
-    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/decision-modelling/</loc>
-    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/selecting-appropriate-combination-of-drug-dosages-with-r/</loc>
-    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2019-06-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/cea/</loc>
     <lastmod>2019-05-23T00:00:00+02:00</lastmod>
     <priority>0</priority>
@@ -65,13 +31,14 @@
   </url>
   
   <url>
-    <loc>/project/external-project/</loc>
+    <loc>/tags/</loc>
     <lastmod>2019-05-23T00:00:00+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/post/test-post/</loc>
-    <lastmod>2019-05-16T00:00:00+00:00</lastmod>
+    <loc>/project/external-project/</loc>
+    <lastmod>2019-05-23T00:00:00+02:00</lastmod>
   </url>
   
   <url>
@@ -111,6 +78,12 @@
   
   <url>
     <loc>/authors/ca-uylde-groot/</loc>
+    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/decision-modelling/</loc>
     <lastmod>2018-11-01T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -354,29 +327,6 @@
   </url>
   
   <url>
-    <loc>/post/2015-07-23-r-rmarkdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/r-markdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/plot/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/regression/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/author/admin/</loc>
   </url>
   
@@ -388,6 +338,15 @@
   <url>
     <loc>/author/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
   </url>
   
 </urlset>

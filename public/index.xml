@@ -36,103 +36,12 @@
     </item>
     
     <item>
-      <title>Selecting an appropriate combination of drug dosages with R</title>
-      <link>/post/selecting-appropriate-combination-of-drug-dosages-with-r/</link>
-      <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/selecting-appropriate-combination-of-drug-dosages-with-r/</guid>
-      <description>
-
-
-&lt;p&gt;Calculating appropriate drug costs is crucial for every health economic evaluation.
-I remember the first time I had to calculate drug costs. Back then, working with
-Microsoft Excel for a &lt;em&gt;real&lt;/em&gt; project was excitingly new for me. However,
-I got quickly frustrated with this seemingly simple task. The price for a ‘simple’
-dose of let’s say 125mg per patient can be calculated in different ways.
-Especially, when I had chose a combination from a plethora of smaller doses. It
-may happen that you may have to combine smaller doses of 2.5mg, 5mg, 15mg, 50mg
-or 100mg to derive the needed 125mg. Maybe you would chose for 100mg + 50mg and
-discard or reuse the rest. Or you go for 100mg + 15mg + 5mg + 5mg. Many more
-options are possible and your decision wouldn’t really matter if the price of
-larger mg’s would be a multiple of the smaller doses. But this is not always the
-case. Check out the Dutch prices for &lt;strong&gt;hydroxicarbamide&lt;/strong&gt; or &lt;strong&gt;lenalidomide&lt;/strong&gt; on
-&lt;a href=&#34;https://www.medicijnkosten.nl&#34;&gt;medicijnkosten.nl&lt;/a&gt; (see Table @(tab:med-price)).&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data.frame(Name = c(rep(&amp;quot;Hydroxycarbamide&amp;quot;, 2)))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##               Name
-## 1 Hydroxycarbamide
-## 2 Hydroxycarbamide&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The calculation of drugs costs can be quite daunting since many medications are
-often substituted with some kind of ‘condition’. Chemotherapies for instance, are
-often given depending on the body surface area or per kilogram body weight.&lt;/p&gt;
-&lt;p&gt;In a deterministic analysis, one would first determine the needed dose&lt;/p&gt;
-&lt;p&gt;Test&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Dosing function
-
-DosingFun &amp;lt;- function(target, combi){
-        new.target &amp;lt;- loop.target &amp;lt;- ceiling(target / combi[1]) * combi[1]
-        
-        i &amp;lt;- 1
-        dose &amp;lt;- vector()
-        quant &amp;lt;- vector()
-        
-        
-        while(loop.target &amp;gt; 0){
-                fills &amp;lt;- floor(loop.target / combi)
-                dose[i] &amp;lt;- ifelse(any(fills == 0),
-                                  combi[which(fills == 0)[[1]] - 1],
-                                  combi[length(combi)])
-                
-                
-                quant[i] &amp;lt;- ifelse(any(fills == 0),
-                                   fills[which(fills == 0)[[1]] - 1],
-                                   fills[length(fills)])
-                
-                dosefills &amp;lt;- fills * combi
-                
-                
-                loop.target &amp;lt;- loop.target - last(dosefills[dosefills &amp;gt; 0])
-                loop.target
-                
-                i &amp;lt;-  i + 1
-                i
-        }
-        waste &amp;lt;- new.target - target
-        df &amp;lt;- cbind(dose, quant) %&amp;gt;% data.frame()
-        
-        res &amp;lt;- list(df = df,
-                    waste = waste)
-        
-}
-
-# Test
-#x &amp;lt;- DosingFun(target = 133, combi = c(25, 100))&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
       <title>The RETHRIM project</title>
       <link>/project/external-project/</link>
       <pubDate>Thu, 23 May 2019 00:00:00 +0200</pubDate>
       
       <guid>/project/external-project/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Test post</title>
-      <link>/post/test-post/</link>
-      <pubDate>Thu, 16 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/post/test-post/</guid>
-      <description>
-
-
-&lt;p&gt;So where to find this post.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 5+5&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 10&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;For the entire&lt;/p&gt;
-</description>
     </item>
     
     <item>
@@ -485,57 +394,6 @@ library(dplyr)&lt;/code&gt;&lt;/pre&gt;
 
 
 
-</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/post/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/post/2015-07-23-r-rmarkdown/</guid>
-      <description>
-
-
-&lt;div id=&#34;r-markdown&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;R Markdown&lt;/h1&gt;
-&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; class=&#34;uri&#34;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;You can embed an R code chunk like this:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;summary(cars)
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-fit &amp;lt;- lm(dist ~ speed, data = cars)
-fit
-## 
-## Call:
-## lm(formula = dist ~ speed, data = cars)
-## 
-## Coefficients:
-## (Intercept)        speed  
-##     -17.579        3.932&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;including-plots&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Including Plots&lt;/h1&gt;
-&lt;p&gt;You can also embed plots. See Figure &lt;a href=&#34;#fig:pie&#34;&gt;1&lt;/a&gt; for example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c(&amp;#39;Sky&amp;#39;, &amp;#39;Sunny side of pyramid&amp;#39;, &amp;#39;Shady side of pyramid&amp;#39;),
-  col = c(&amp;#39;#0292D8&amp;#39;, &amp;#39;#F7EA39&amp;#39;, &amp;#39;#C4B632&amp;#39;),
-  init.angle = -50, border = NA
-)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:pie&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png&#34; alt=&#34;A fancy pie chart.&#34; width=&#34;672&#34; /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 1: A fancy pie chart.
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 </description>
     </item>
     

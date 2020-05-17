@@ -1,0 +1,103 @@
+"ID","Title","ShortTitle","Identifier","Summary","Modified","ReasonDelivery","ExplanatoryText","Language","Catalog","Frequency","Period","ShortDescription","Description","DefaultPresentation","DefaultSelection","GraphTypes","OutputStatus","Source","MetaDataModified","SearchPriority"
+0,"Jaarmutatie consumentenprijsindex; vanaf 1963","Jaarmutatie CPI; vanaf 1963","70936ned","Jaarmutatie volgens consumentenprijsindex (CPI) vanaf 1963.
+ ","2020-05-12T06:30:00","Verbetering","","nl","CBS","Permaand","1963 januari - 2020 april","
+Deze tabel bevat de jaarmutaties van de consumentenprijsindex (CPI) vanaf het moment dat deze voor de eerste keer zijn gepubliceerd. De cijfers geven aan hoe de prijzen van goederen en diensten voor consumenten in een jaar zijn ontwikkeld. Ook bevat de tabel de procentuele jaarmutaties volgens de afgeleide consumentenprijsindex. Hierin is het effect van veranderingen in de tarieven van productgebonden belastingen en subsidies en van consumptiegebonden belastingen geëlimineerd.
+
+Gegevens beschikbaar vanaf: januari 1963
+
+Status van de cijfers:
+Als gevolg van de overheidsmaatregelen in verband met de coronacrisis is in een aantal branches vanaf 16 maart de verkoop van producten en diensten stilgelegd. Dit heeft uiteraard ook gevolgen voor de waarneming van de prijzen in deze branches. Binnen Europa vindt afstemming plaats hoe de prijsontwikkelingen van deze stilgelegde branches in de berekeningen van de HICP verwerkt moeten worden. De gepubliceerde uitkomsten voor zowel de HICP als de CPI zullen daarom vanaf de verslagmaand maart 2020 tot nader order de status voorlopig behouden. Cijfers van artikelgroepen die voor een groter deel dan de helft van hun weging zijn geschat, worden niet getoond in de tabel.
+
+Wijzigingen ten opzichte van de vorige versie: 
+Er zijn gegevens over een nieuwe periode toegevoegd en/of bijstellingen doorgevoerd.
+
+Wanneer komen er nieuwe cijfers?
+De nieuwe cijfers worden doorgaans op de eerste donderdag van de maand gepubliceerd. Tenzij de eerste donderdag op de eerste, tweede of derde dag van de maand valt of er feestdagen vlak voor of op deze donderdag vallen. Dan worden de nieuwe cijfers de dinsdag daarna gepubliceerd.
+","INHOUDSOPGAVE
+
+1. Toelichting
+2. Definities en verklaring van symbolen
+3. Koppelingen naar relevante tabellen en artikelen
+4. Bronnen en methoden
+5. Meer informatie 
+
+1. TOELICHTING
+
+Deze tabel bevat de jaarmutaties van de consumentenprijsindex (CPI) vanaf het moment dat deze voor de eerste keer zijn gepubliceerd. De cijfers geven aan hoe de prijzen van goederen en diensten voor consumenten in een jaar zijn ontwikkeld. Ook bevat de tabel de procentuele jaarmutaties volgens de afgeleide consumentenprijsindex. Hierin is het effect van veranderingen in de tarieven van productgebonden belastingen en subsidies en van consumptiegebonden belastingen geëlimineerd.
+
+Gegevens beschikbaar vanaf: januari 1963
+
+Status van de cijfers:
+Als gevolg van de overheidsmaatregelen in verband met de coronacrisis is in een aantal branches vanaf 16 maart de verkoop van producten en diensten stilgelegd. Dit heeft uiteraard ook gevolgen voor de waarneming van de prijzen in deze branches. Binnen Europa vindt afstemming plaats hoe de prijsontwikkelingen van deze stilgelegde branches in de berekeningen van de HICP verwerkt moeten worden. De gepubliceerde uitkomsten voor zowel de HICP als de CPI zullen daarom vanaf de verslagmaand maart 2020 tot nader order de status voorlopig behouden. Cijfers van artikelgroepen die voor een groter deel dan de helft van hun weging zijn geschat, worden niet getoond in de tabel.
+
+Wijzigingen ten opzichte van de vorige versie: 
+Er zijn gegevens over een nieuwe periode toegevoegd en/of bijstellingen doorgevoerd.
+
+Wanneer komen er nieuwe cijfers?
+De nieuwe cijfers worden doorgaans op de eerste donderdag van de maand gepubliceerd. Tenzij de eerste donderdag op de eerste, tweede of derde dag van de maand valt of er feestdagen vlak voor of op deze donderdag vallen. Dan worden de nieuwe cijfers de dinsdag daarna gepubliceerd.
+
+2. DEFINITIES EN VERKLARING VAN SYMBOLEN
+
+Definities:
+Consumentenprijsindex (CPI):
+Indexcijfer dat het prijsverloop weergeeft van een pakket goederen en diensten zoals dit gemiddeld wordt aangeschaft door alle huishoudens in Nederland.
+
+Jaarmutatie CPI:
+Jaarmutatie CPI is de gemiddelde prijsstijging van de goederen en diensten die consumenten kopen. De jaarmutatie CPI wordt gemeten als de stijging van de consumentenprijsindex (CPI) ten opzichte van de overeenkomstige periode in het voorgaande jaar.
+
+Jaarmutatie CPI, afgeleid:
+De reeks jaarmutatie CPI, afgeleid is de jaarmutatie CPI exclusief het effect van veranderingen in de tarieven van productgebonden belastingen (bijvoorbeeld BTW en accijns op alcohol en tabak) en subsidies.
+
+Verklaring van symbolen:
+
+niets (blanco)	: het cijfer kan op logische gronden niet voorkomen
+. 		: het cijfer is onbekend, onvoldoende betrouwbaar of geheim
+*		: voorlopige cijfers
+**		: nader voorlopige cijfers
+
+3. KOPPELINGEN NAAR RELEVANTE TABELLEN EN ARTIKELEN
+
+Relevante tabellen:
+Informatie over de statistische implicaties van de coronacrisis op de consumentenprijzen is te vinden via de onderstaande link. 
+<a href='https://www.cbs.nl/nl-nl/longread/diversen/2020/de-gevolgen-van-de-coronacrisis-voor-het-samenstellen-van-de-cpi'>De gevolgen van de coronacrisis voor het samenstellen van de cpi</a>.
+
+De consumentenprijsindex 2015 = 100 vindt u in de tabel:
+<a href=""https://opendata.cbs.nl/statline/#/CBS/nl/dataset/83131NED"">Consumentenprijzen; prijsindex 2015 = 100</a>
+
+Een consumentenprijsindex vanaf 1900 vindt u in de tabel: <a href=""https://opendata.cbs.nl/statline/#/CBS/nl/dataset/71905NED"">
+Consumentenprijzen; prijsindex 1900 = 100</a>
+
+Relevante artikelen:
+Het prijzendashboard waar meerdere vormen van inflatie getoond worden vindt u in de visualisatie: <a href='https://www.cbs.nl/nl-nl/visualisaties/prijzendashboard'>Prijzendashboard</a>
+
+Meer informatie is te vinden op de themapagina <a href='https://www.cbs.nl/nl-nl/economie/prijzen'>Prijzen</a>.
+
+4. BRONNEN EN METHODEN
+
+Kledingprijzen vanaf april 2018:
+Het CBS heeft de consumentenprijsindex voor dames-, heren- en kinderkleding per april 2018 met enkele procenten omhoog bijgesteld als gevolg van een gewijzigde methode. De aanpassing van de indexcijfers voor kleding heeft ook invloed op de uitkomst voor de totale CPI. De jaarmutatie van de CPI voor april 2018 is bijgesteld van 0,9 naar 1,1 procent. Meer informatie over de aanpassing van het indexniveau is beschreven in het document <a href='https://www.cbs.nl/nl-nl/onze-diensten/methoden/onderzoeksomschrijvingen/aanvullende%20onderzoeksbeschrijvingen/cpi-niveaucorrectie-prijsindex-kleding-april-2018'>CPI – Niveaucorrectie prijsindex kleding april 2018</a>.
+
+In al die jaren zijn er verschillende basisverleggingen geweest om het pakket goederen en diensten waar de consumentenprijsindex op is gebaseerd goed aan te laten sluiten bij de uitgaven van de Nederlandse consument.
+In deze tabel zijn voor de berekening van de jaarmutatie CPI achtereenvolgens de volgende reeksen gebruikt:
+
+CPI, werknemers laag 1959 = 100 vanaf januari 1963 t/m december 1967
+CPI, werknemers laag 1964 = 100 vanaf januari 1968 t/m december 1971
+CPI, werknemers laag 1969 = 100 vanaf januari 1972 t/m december 1977
+CPI, werknemers laag 1975 = 100 vanaf januari 1978 t/m december 1982
+CPI, werknemers laag 1980 = 100 vanaf januari 1983 t/m juli 1988
+CPI, werknemers laag 1985 = 100 vanaf augustus 1988 t/m januari 1994
+CPI, alle huishoudens 1990 = 100 vanaf februari 1994 t/m september 1997
+CPI, alle huishoudens 1995 = 100 vanaf oktober 1997 t/m december 2002
+CPI, alle huishoudens 2000 = 100 vanaf januari 2003 t/m december 2006
+CPI, alle huishoudens 2006 = 100 vanaf januari 2007 t/m december 2015
+CPI, alle huishoudens 2015 = 100 vanaf januari 2016
+
+Wilt u meer over de achtergrond van de CPI weten, lees dan de korte onderzoeksbeschrijving: <a 
+href=""https://www.cbs.nl/nl-nl/onze-diensten/methoden/onderzoeksomschrijvingen/korte-onderzoeksbeschrijvingen/consumentenprijsindex--cpi---2015-100"">Consumentenprijsindex</a>.
+
+5. MEER INFORMATIE
+
+<a href='https://www.cbs.nl/nl-nl/over-ons/contact/infoservice'>Infoservice</a>
+
+Copyright © Centraal Bureau voor de Statistiek, Den Haag/Heerlen
+Verveelvoudiging is toegestaan, mits CBS als bron wordt vermeld.","ts=1589197469647&graphtype=Table&r=Perioden&k=Topics","$filter=((Perioden eq '2019MM01') or (Perioden eq '2019MM02') or (Perioden eq '2019MM03') or (Perioden eq '2019MM04') or (Perioden eq '2019MM05') or (Perioden eq '2019MM06') or (Perioden eq '2019MM07') or (Perioden eq '2019MM08') or (Perioden eq '2019MM09') or (Perioden eq '2019MM10') or (Perioden eq '2019MM11') or (Perioden eq '2019MM12') or (Perioden eq '2019JJ00') or (Perioden eq '2020MM01') or (Perioden eq '2020MM02') or (Perioden eq '2020MM03') or (Perioden eq '2020MM04'))","Table,Bar,Line","Regulier","CBS.","2020-05-13T02:00:00","3"

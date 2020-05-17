@@ -44,7 +44,7 @@ user_groups:
 - Visitors
 ---
 
-Frederick W. Thielen is a PhD student in Health Technology Assessment (HTA) at the Erasmus University Rotterdam (The Netherlands). His research interests include health economic modelling of haematological diseasesas well as pharmaceutical pricing and market access of new (and therefore mostly [very] expensive) cancer drugs.
+Frederick W. Thielen is a PhD student in Health Technology Assessment (HTA) at the Erasmus University Rotterdam (The Netherlands). His research interests include health economic modelling of haematological diseasesas as well as pharmaceutical pricing and market access of new (and therefore mostly [very] expensive) cancer drugs.
 
 Whenever possible, he is conducting research in R and is guided by the following principles:  
 
