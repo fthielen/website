@@ -19,6 +19,40 @@
   </url>
   
   <url>
+    <loc>/post/</loc>
+    <lastmod>2020-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/r/</loc>
+    <lastmod>2020-05-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-05-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/2020/cbsodatar-reddit/</loc>
+    <lastmod>2020-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/cbsodatar/</loc>
+    <lastmod>2020-05-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/ggplot2/</loc>
+    <lastmod>2020-05-17T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/cea/</loc>
     <lastmod>2019-05-23T00:00:00+02:00</lastmod>
     <priority>0</priority>
@@ -26,12 +60,6 @@
   
   <url>
     <loc>/project/</loc>
-    <lastmod>2019-05-23T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2019-05-23T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -338,10 +366,6 @@
   <url>
     <loc>/categories/</loc>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
   </url>
   
 </urlset>
