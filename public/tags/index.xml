@@ -39,18 +39,18 @@
     </item>
     
     <item>
-      <title>CEA</title>
-      <link>/tags/cea/</link>
-      <pubDate>Thu, 23 May 2019 00:00:00 +0200</pubDate>
+      <title>CAR T-cell therapy</title>
+      <link>/tags/car-t-cell-therapy/</link>
+      <pubDate>Tue, 14 Apr 2020 00:00:00 +0200</pubDate>
       
-      <guid>/tags/cea/</guid>
+      <guid>/tags/car-t-cell-therapy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Decision Modelling</title>
       <link>/tags/decision-modelling/</link>
-      <pubDate>Thu, 01 Nov 2018 00:00:00 +0200</pubDate>
+      <pubDate>Tue, 14 Apr 2020 00:00:00 +0200</pubDate>
       
       <guid>/tags/decision-modelling/</guid>
       <description></description>
@@ -59,9 +59,18 @@
     <item>
       <title>Economic Evaluation</title>
       <link>/tags/economic-evaluation/</link>
-      <pubDate>Thu, 01 Nov 2018 00:00:00 +0200</pubDate>
+      <pubDate>Tue, 14 Apr 2020 00:00:00 +0200</pubDate>
       
       <guid>/tags/economic-evaluation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CEA</title>
+      <link>/tags/cea/</link>
+      <pubDate>Thu, 23 May 2019 00:00:00 +0200</pubDate>
+      
+      <guid>/tags/cea/</guid>
       <description></description>
     </item>
     

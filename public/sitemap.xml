@@ -53,6 +53,88 @@
   </url>
   
   <url>
+    <loc>/publication_types/2/</loc>
+    <lastmod>2020-04-14T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/a-van-dongen-leunis/</loc>
+    <lastmod>2020-04-14T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/amm-arons/</loc>
+    <lastmod>2020-04-14T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+    <lastmod>2020-04-14T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/ca-uylde-groot/</loc>
+    <lastmod>2020-04-14T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/car-t-cell-therapy/</loc>
+    <lastmod>2020-04-14T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/publication/cea-cart/</loc>
+    <lastmod>2020-04-14T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/decision-modelling/</loc>
+    <lastmod>2020-04-14T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/economic-evaluation/</loc>
+    <lastmod>2020-04-14T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/jr-ladestein/</loc>
+    <lastmod>2020-04-14T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/authors/pm-hoogerbrugge/</loc>
+    <lastmod>2020-04-14T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/publication_types/</loc>
+    <lastmod>2020-04-14T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/publication/</loc>
+    <lastmod>2020-04-14T00:00:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/admin/</loc>
+    <lastmod>2020-04-14T00:00:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/cea/</loc>
     <lastmod>2019-05-23T00:00:00+02:00</lastmod>
     <priority>0</priority>
@@ -81,12 +163,6 @@
   </url>
   
   <url>
-    <loc>/publication_types/2/</loc>
-    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/authors/a-redondo/</loc>
     <lastmod>2018-11-01T00:00:00+02:00</lastmod>
     <priority>0</priority>
@@ -94,30 +170,6 @@
   
   <url>
     <loc>/authors/ac-lankester/</loc>
-    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/authors/</loc>
-    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/authors/ca-uylde-groot/</loc>
-    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/decision-modelling/</loc>
-    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/economic-evaluation/</loc>
     <lastmod>2018-11-01T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>
@@ -177,29 +229,12 @@
   </url>
   
   <url>
-    <loc>/publication_types/</loc>
-    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/publication/</loc>
-    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/publication/gvhd-model/</loc>
     <lastmod>2018-11-01T00:00:00+02:00</lastmod>
   </url>
   
   <url>
     <loc>/authors/we-fibbe/</loc>
-    <lastmod>2018-11-01T00:00:00+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/authors/admin/</loc>
     <lastmod>2018-11-01T00:00:00+02:00</lastmod>
     <priority>0</priority>
   </url>

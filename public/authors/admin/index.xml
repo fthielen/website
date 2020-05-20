@@ -6,10 +6,19 @@
     <description>Recent content in admin on data_fR@</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Nov 2018 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 14 Apr 2020 00:00:00 +0200</lastBuildDate>
     
 	<atom:link href="/authors/admin/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cost-effectivness of CAR T-cell therapy for pALL. A societal view.</title>
+      <link>/publication/cea-cart/</link>
+      <pubDate>Tue, 14 Apr 2020 00:00:00 +0200</pubDate>
+      
+      <guid>/publication/cea-cart/</guid>
+      <description>In this article we conduct a cost-utility analyses of the CAR T-cell therapy tisagenlecleucel from a health care perspective and societal perspective.</description>
+    </item>
     
     <item>
       <title>Second‐line treatment for acute graft‐versus‐host disease with mesenchymal stromal cells: A decision model.</title>
