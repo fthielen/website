@@ -6,9 +6,19 @@
     <description>Recent content in Posts on data_fR@</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Sun, 17 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Using cbsodataR to plot total deaths per week in the Netherlands from 1995 to 2020 (OC from reddit)</title>
+      <link>/post/2020/cbsodatar-reddit/</link>
+      <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2020/cbsodatar-reddit/</guid>
+      <description>Replicating an original content (OC) from reddit with the R packages cbsodataR and ggplot2.</description>
+    </item>
     
   </channel>
 </rss>
