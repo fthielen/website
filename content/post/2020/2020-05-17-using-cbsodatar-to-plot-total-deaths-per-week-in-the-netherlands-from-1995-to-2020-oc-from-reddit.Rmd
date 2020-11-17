@@ -1,19 +1,23 @@
 ---
 title: Using cbsodataR to plot total deaths per week in the Netherlands from 1995
   to 2020 (OC from reddit)
-summary: "Replicating an original content (OC) from reddit with the R packages cbsodataR and ggplot2."
-author: admin
+author: "admin"
 date: '2020-05-17'
+output: pdf_document
 slug: cbsodatar-reddit
-categories: []
-featured: true
+categories: R
+featured: yes
 tags:
-  - R
-  - cbsodataR
-  - ggplot2
+- R
+- cbsodataR
+- ggplot2
 image:
-  caption: "test"
+  caption: test
+summary: Replicating an original content (OC) from reddit with the R packages cbsodataR
+  and ggplot2.
 ---
+
+**Update 17 November 2020: code chunk to download CBS data was missing. This is now added however, this also leads to an update in the downloaded CBS data. This is kept for this exercise.**
 
 # Background
 The other day I was browsing through reddit when a post in **r/dataisbeautiful**
@@ -66,7 +70,7 @@ its URL. In this case this is `70895ENG`.
 
 Let's start writing the R script.
 
-```{r echo=FALSE, message=FALSE}
+```{r echo=TRUE, message=FALSE}
 # Load needed packages
 library(tidyverse)
 library(cbsodataR)
