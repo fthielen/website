@@ -1,6 +1,220 @@
+---
+title: Using cbsodataR to plot total deaths per week in the Netherlands from 1995
+  to 2020 (OC from reddit)
+author: "admin"
+date: '2020-05-17'
+output: pdf_document
+slug: cbsodatar-reddit
+categories: [R]
+featured: true
+tags:
+- R
+- cbsodataR
+- ggplot2
+image:
+  caption: test
+summary: Replicating an original content (OC) from reddit with the R packages cbsodataR
+  and ggplot2.
+---
 
 <link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
 
 
+<p><strong>Update 17 November 2020: code chunk to download CBS data was missing. This is now added however, this also leads to an update in the downloaded CBS data. This is kept for this exercise.</strong></p>
+<div id="background" class="section level1">
+<h1>Background</h1>
+<p>The other day I was browsing through reddit when a post in <strong>r/dataisbeautiful</strong>
+caught my attention. The title stated
+<a href="https://www.reddit.com/r/dataisbeautiful/comments/gcqqfn/oc_total_deaths_per_week_in_the_netherlands_from/">[OC] Total deaths per week in the Netherlands from 1995 to 2020</a> and showed a graph with several lines. User <em>theorange1990</em>
+plotted the weekly total deaths in
+the Netherlands between 1995 and 2020, together with an “Upper Bound”
+line. In addition, three more labels were included in the figure, pointing to
+“2018 - Flu epidemic in the Netherlands”, “2020 - so far”, and ‘“Upper Bound” of
+a normal year curve’.</p>
+<p>What stood out was one yellow curve, peaking on the y-axis. This one was
+labelled with “2020 - so far”. It didn’t look long for the community to point to
+some methodological flaws of plotting the data “as is”, but I was interested in
+where the data were actually coming from. In the authors citation, <em>theorange1990</em>
+mentioned the source to be Statistics Netherlands (CBS), the national statistical
+office of the Netherlands and just below the sentence: “Data organized and
+graphed using Excel”.</p>
+<p>While Excel is of course a valid tool for such simple plotting exercises, I
+wanted to see if and how I can replicate this graph in R.</p>
+<p>The replication took about 10-15 minutes with downloading the most
+recent data from the CBS servers directly into R. This approach has several
+advantages:</p>
+<ul>
+<li>R is getting newest data directly from the CBS server (no separate downloading,
+saving, opening, transformation from .csv to .xlsx by hand necessary)</li>
+<li>The code can easily be shared (what I do here) and everyone running the script
+will received the same result</li>
+<li>With new data points becoming available, the plot is “updating itself”</li>
+</ul>
+<p>In the following, I want share my approach.</p>
+</div>
+<div id="needed-packages" class="section level1">
+<h1>Needed packages</h1>
+<ul>
+<li><strong>tidyverse</strong> for data cleaning, transformation and visualisation</li>
+<li><strong>cbsodataR</strong> open data API client for CBS</li>
+</ul>
+</div>
+<div id="cbs-data" class="section level1">
+<h1>CBS data</h1>
+<div id="download-with-cbs-api-cbsodatar" class="section level2">
+<h2>Download with CBS API: cbsodataR</h2>
+<p>To download the same data as the reddit author, we look at his/her link
+provided in the post: <a href="https://opendata.cbs.nl/#/CBS/en/dataset/70895ENG/table" class="uri">https://opendata.cbs.nl/#/CBS/en/dataset/70895ENG/table</a></p>
+<p>Clicking the link brings us to the online table but we just need the “table
+identifier” which is a unique table ID for each CBS tables. I found these difficult
+to find on the table website but if you have the link, the identifier is part of
+its URL. In this case this is <code>70895ENG</code>.</p>
+<p>Let’s start writing the R script.</p>
+<pre class="r"><code># Load needed packages
+library(tidyverse)
+library(cbsodataR)
 
+# Import data from CBS using the table identifier
+db_cbs &lt;- cbsodataR::cbs_get_data(&quot;70895ENG&quot;) %&gt;%
+        cbs_add_label_columns() # Without this line we only see codes for each observation which are difficult to interpret</code></pre>
+<p>Now that we have downloaded the table, let’s have a look at it.</p>
+<pre class="r"><code>head(db_cbs)</code></pre>
+<pre><code>## # A tibble: 6 x 7
+##   Sex    Sex_label Age31December Age31December_l… Periods Periods_label Deaths_1
+##   &lt;chr&gt;  &lt;fct&gt;     &lt;chr&gt;         &lt;fct&gt;            &lt;chr&gt;   &lt;fct&gt;            &lt;int&gt;
+## 1 T0010… Total ma… 10000         Total            1995X0… 1995 week 0 …      394
+## 2 T0010… Total ma… 10000         Total            1995W1… 1995 week 1       2719
+## 3 T0010… Total ma… 10000         Total            1995W1… 1995 week 2       2823
+## 4 T0010… Total ma… 10000         Total            1995W1… 1995 week 3       2609
+## 5 T0010… Total ma… 10000         Total            1995W1… 1995 week 4       2664
+## 6 T0010… Total ma… 10000         Total            1995W1… 1995 week 5       2577</code></pre>
+</div>
+<div id="tidy-data" class="section level2">
+<h2>Tidy data</h2>
+<p>The formatting looks different from the format on the table’s website, but this
+doesn’t matter for this plotting exercise.</p>
+<p>One problem we have with the table though is that year and weeks are “smashed
+together” into one variable: <code>Periods</code> or <code>Periods_label</code>.</p>
+<p>We however want to plot deaths by week on the x-axis and each year should become
+one line. So we need to separate the years from the weeks.</p>
+<p>Since <code>Periods</code> always has eight characters, it is easiest use this column and
+separate the two information on time with <code>substr()</code>.</p>
+<p>Just as on the OC we are only interested in pooled data for:</p>
+<ul>
+<li>both sexes (see columns <code>Sex</code> or <code>Sex_label</code>),</li>
+<li>all age groups (see columns <code>Age31Decembet</code> or <code>Age31December_label</code>), and</li>
+<li>weeks 1 to 52 (weeks 0 and 53 were excluded since they do not appear in each year).</li>
+</ul>
+<pre class="r"><code>db_plot &lt;- db_cbs %&gt;%
+  mutate(year = factor(substr(Periods, start = 1, stop = 4)), # extract year
+         wk = factor(as.numeric(substr(Periods, start = 7, stop = 8)))) %&gt;% #extract weeks
+        filter(Sex == &quot;T001038&quot;, # only keep data for both sexes
+               Age31December == &quot;10000&quot;,
+               wk %in% 1:52) %&gt;% # only keep weeks 1 through 52
+        select(Sex_label, Deaths_1, year, wk) %&gt;% # keep necessary data only
+  mutate(Sex_label = factor(Sex_label))</code></pre>
+<p>Now that we have the data in a tidy way and kept only necessary columns, let’s
+have a look at it (first six rows should be enough).</p>
+<pre class="r"><code>head(db_plot)</code></pre>
+<pre><code>## # A tibble: 6 x 4
+##   Sex_label             Deaths_1 year  wk   
+##   &lt;fct&gt;                    &lt;int&gt; &lt;fct&gt; &lt;fct&gt;
+## 1 Total male and female     2719 1995  1    
+## 2 Total male and female     2823 1995  2    
+## 3 Total male and female     2609 1995  3    
+## 4 Total male and female     2664 1995  4    
+## 5 Total male and female     2577 1995  5    
+## 6 Total male and female     2536 1995  6</code></pre>
+</div>
+<div id="plotting-data" class="section level2">
+<h2>Plotting data</h2>
+<p>In this exercise we will use a simple line chart with <strong>ggplot2</strong>. Since we have
+tidy data already we just needs to specify a few things.</p>
+<pre class="r"><code>ggplot(data = db_plot) +
+  # plot lines
+  geom_line(aes(x = factor(wk), y = Deaths_1, col = year, group = year)) +
+  # add lables
+  labs(title = &quot;Deaths per week&quot;,
+       x = &quot;Week number&quot;,
+       y = &quot;Deaths&quot;,
+       col = &quot;Years&quot;) +
+  # place legend and customise text size to make it all fit
+  theme(legend.position = &quot;bottom&quot;,
+        legend.text = element_text(size = 7),
+        text = element_text(size = 7)) + 
+  guides(col = guide_legend(nrow = 3)) </code></pre>
+<p><img src="/post/2020/2020-05-17-using-cbsodatar-to-plot-total-deaths-per-week-in-the-netherlands-from-1995-to-2020-oc-from-reddit_files/figure-html/plotting-1.png" width="672" /></p>
+</div>
+<div id="remarks-and-additions" class="section level2">
+<h2>Remarks and additions</h2>
+<p>As opposed to Excel, R is not “smoothing” the lines between the different data
+points for each week. If this is a goal this post on
+<a href="https://stackoverflow.com/questions/35205795/plotting-smooth-line-through-all-data-points">stackoverflow</a>
+might be something for you.</p>
+<p>By the time of writing, rendering and finally pushing this post to github, there
+were more data available than in the post on reddit. I decided to plot these data
+as well.</p>
+<p>Since the data have information on age categories, plotting several
+graphs is quite easy. Instead of keeping only data for all age groups
+(see <code>filter(Age31December == "10000"</code>),
+we can keep all age groups and use the <code>facet_wrap()</code> function from <strong>ggplot2</strong>.
+Notice
+that I use <code>scales = "free"</code> to “zoom” into the different age groups.</p>
+<pre class="r"><code>db_plot2 &lt;- db_cbs %&gt;%
+  mutate(year = factor(substr(Periods, start = 1, stop = 4)), # extract year
+         wk = factor(as.numeric(substr(Periods, start = 7, stop = 8)))) %&gt;% #extract weeks
+        filter(Sex == &quot;T001038&quot;, # only keep data for both sexes
+               wk %in% 1:52) %&gt;% # only keep weeks 1 through 52
+        select(Sex_label, Deaths_1, year, wk, Age31December_label) %&gt;% # keep necessary data only
+  mutate(Sex_label = factor(Sex_label))
+
+ggplot(data = db_plot2) +
+  # plot lines
+  geom_line(aes(x = factor(wk), y = Deaths_1, col = year, group = year)) +
+  # add lables
+  labs(title = &quot;Deaths per week&quot;,
+       x = &quot;Week number&quot;,
+       y = &quot;Deaths&quot;,
+       col = &quot;Years&quot;) +
+  # place legend and customise text size to make it all fit
+  theme(legend.position = &quot;bottom&quot;,
+        legend.text = element_text(size = 7),
+        text = element_text(size = 7)) + 
+  guides(col = guide_legend(nrow = 3)) +
+  facet_wrap(~ Age31December_label, scales = &quot;free&quot;)</code></pre>
+<p><img src="/post/2020/2020-05-17-using-cbsodatar-to-plot-total-deaths-per-week-in-the-netherlands-from-1995-to-2020-oc-from-reddit_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Finally, we could also only include the last five years of data to avoid any
+discussions of the data not being comparable due to ageing, migration patterns,
+advances in vaccination programmes etc.</p>
+<p>We can filter data in <code>ggplot()</code> directly:</p>
+<pre class="r"><code>ggplot(data = filter(db_plot2, year %in% 2015:2020)) +
+  # plot lines
+  geom_line(aes(x = factor(wk), y = Deaths_1, col = year, group = year)) +
+  # add lables
+  labs(title = &quot;Deaths per week&quot;,
+       x = &quot;Week number&quot;,
+       y = &quot;Deaths&quot;,
+       col = &quot;Years&quot;) +
+  # place legend and customise text size to make it all fit
+  theme(legend.position = &quot;bottom&quot;,
+        legend.text = element_text(size = 7),
+        text = element_text(size = 7)) + 
+  guides(col = guide_legend(nrow = 1)) +
+  facet_wrap(~ Age31December_label, scales = &quot;free&quot;)</code></pre>
+<p><img src="/post/2020/2020-05-17-using-cbsodatar-to-plot-total-deaths-per-week-in-the-netherlands-from-1995-to-2020-oc-from-reddit_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>This post is avoiding any discussion on the usefulness of the data to interpret
+the COVID-19 pandemic on purpose. Instead it shows how to easily retrieve
+up-to-date data from CBS and plot them with a
+few lines of R code. The advantage to this approach (as opposed to plotting in
+Excel) is that the graphs are produced
+in a transparent and reproducible way and that they can be updated on a weekly
+basis (each
+time new data is becoming available). This post can serve as a use case for the
+<strong>cbsodataR</strong> package or even <strong>ggplot2</strong> (although for the latter there are
+much better examples out there).</p>
+</div>
