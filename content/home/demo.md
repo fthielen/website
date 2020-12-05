@@ -53,7 +53,7 @@ On *16 December 2020* I will defend my PhD Dissertation:
 
 at the Erasmus University, Rotterdam.  
 
-You can download a PDF version of my [dissertation](files/dissertation-wf_thielen.pdf), and its [online Appendix](files/online_appendix.pdf) for educational purposes.
+You can download a PDF version of my [dissertation](files/dissertation-wf_thielen.pdf), and its [online Appendix](files/online_appendix.pdf).
 
 If you want to watch the defence online, please click [here](https://erasmusuniversity.eu.qualtrics.com/jfe/form/SV_daLcFaqrAHVKo1n). 
 
