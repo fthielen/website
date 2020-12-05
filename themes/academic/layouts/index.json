@@ -3,7 +3,7 @@
 {{- $pages := .Site.RegularPages -}}
 {{- /* Add the index page of docs separately since it's not in RegularPages above. */ -}}
 {{- $pages := $pages | union (where (where .Site.Pages "Kind" "section") "Type" "docs") -}}
-{{- /* Add author pages to index so their bios can be searched. Hide empty `/author/` node. */ -}}
+{{- /* Add authors pages to index so their bios can be searched. Hide empty `/authors/` node. */ -}}
 {{- $pages := $pages | union (where (where site.Pages "Section" "author") "Params.name" "!=" nil) -}}
 
 {{- range $pages -}}
@@ -25,7 +25,7 @@
     {{- $rel_permalink := .RelPermalink -}}
     {{- $permalink := .Permalink -}}
 
-    {{/* Correct the title and URL for author profile pages. */}}
+    {{/* Correct the title and URL for authors profile pages. */}}
     {{- if eq .Section "author" -}}
       {{- $title = .Params.name -}}
       {{- $dir := path.Base (path.Split .Path).Dir -}}
