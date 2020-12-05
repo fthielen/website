@@ -1,24 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Gill Worthy on data_fR@</title>
+    <title>Gill Worthy | data_fR@</title>
     <link>/authors/gill-worthy/</link>
-    <description>Recent content in Gill Worthy on data_fR@</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; {year} Frederick Thielen · all rights reserved</copyright>
-    <lastBuildDate>Mon, 01 Jan 2018 00:00:00 +0200</lastBuildDate>
-    
-	<atom:link href="/authors/gill-worthy/index.xml" rel="self" type="application/rss+xml" />
-    
+      <atom:link href="/authors/gill-worthy/index.xml" rel="self" type="application/rss+xml" />
+    <description>Gill Worthy</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2020 Frederick Thielen · all rights reserved</copyright><lastBuildDate>Mon, 01 Jan 2018 00:00:00 +0200</lastBuildDate>
+    <image>
+      <url>/images/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_2.png</url>
+      <title>Gill Worthy</title>
+      <link>/authors/gill-worthy/</link>
+    </image>
     
     <item>
       <title>Obinutuzumab in Combination with Chemotherapy for the First-Line Treatment of Patients with Advanced Follicular Lymphoma: An Evidence Review Group Evaluation of the NICE Single Technology Appraisal</title>
       <link>/publication/sta-obin/</link>
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0200</pubDate>
-      
       <guid>/publication/sta-obin/</guid>
-      <description>An Evidence Review Group Evaluation of the NICE Single Technology Appraisal for obinutuzumab in combination with chemotherapy for first-line treatment of advanced follicular lymphoma.</description>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+
+</description>
     </item>
     
   </channel>

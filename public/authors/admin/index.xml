@@ -1,44 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>admin on data_fR@</title>
+    <title>data_fR@</title>
     <link>/authors/admin/</link>
-    <description>Recent content in admin on data_fR@</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; {year} Frederick Thielen · all rights reserved</copyright>
-    <lastBuildDate>Tue, 14 Apr 2020 00:00:00 +0200</lastBuildDate>
-    
-	<atom:link href="/authors/admin/index.xml" rel="self" type="application/rss+xml" />
-    
+      <atom:link href="/authors/admin/index.xml" rel="self" type="application/rss+xml" />
+    <description>data_fR@</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2020 Frederick Thielen · all rights reserved</copyright><lastBuildDate>Tue, 14 Apr 2020 00:00:00 +0200</lastBuildDate>
+    <image>
+      <url>/images/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_2.png</url>
+      <title>data_fR@</title>
+      <link>/authors/admin/</link>
+    </image>
     
     <item>
       <title>Cost-effectivness of CAR T-cell therapy for pALL. A societal view.</title>
       <link>/publication/cea-cart/</link>
       <pubDate>Tue, 14 Apr 2020 00:00:00 +0200</pubDate>
-      
       <guid>/publication/cea-cart/</guid>
-      <description>In this article we conduct a cost-utility analyses of the CAR T-cell therapy tisagenlecleucel from a health care perspective and societal perspective.</description>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+
+</description>
     </item>
     
     <item>
       <title>Second‐line treatment for acute graft‐versus‐host disease with mesenchymal stromal cells: A decision model.</title>
       <link>/publication/gvhd-model/</link>
       <pubDate>Thu, 01 Nov 2018 00:00:00 +0200</pubDate>
-      
       <guid>/publication/gvhd-model/</guid>
-      <description>In this article we describe the development and simulation of a decision model for the second-line treatment of acute GvHD.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/author/admin/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/author/admin/</guid>
-      <description>Frederick W. Thielen is a PhD student in Health Technology Assessment (HTA) at the Erasmus University Rotterdam (The Netherlands). His research interests include health economic modelling of haematological diseases as well as pharmaceutical pricing and market access of new (and therefore mostly [very] expensive) cancer drugs.
-Whenever possible, he is conducting research in R and is guided by the following principles:
- Can I do it in R? If not, how can I make it possible in R?</description>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+
+</description>
     </item>
     
   </channel>

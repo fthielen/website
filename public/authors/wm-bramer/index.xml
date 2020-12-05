@@ -1,24 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>WM Bramer on data_fR@</title>
+    <title>WM Bramer | data_fR@</title>
     <link>/authors/wm-bramer/</link>
-    <description>Recent content in WM Bramer on data_fR@</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; {year} Frederick Thielen · all rights reserved</copyright>
-    <lastBuildDate>Tue, 01 Nov 2016 00:00:00 +0200</lastBuildDate>
-    
-	<atom:link href="/authors/wm-bramer/index.xml" rel="self" type="application/rss+xml" />
-    
+      <atom:link href="/authors/wm-bramer/index.xml" rel="self" type="application/rss+xml" />
+    <description>WM Bramer</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2020 Frederick Thielen · all rights reserved</copyright><lastBuildDate>Tue, 01 Nov 2016 00:00:00 +0200</lastBuildDate>
+    <image>
+      <url>/images/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_2.png</url>
+      <title>WM Bramer</title>
+      <link>/authors/wm-bramer/</link>
+    </image>
     
     <item>
       <title>How to prepare a systematic review of economic evaluations for clinical practice guidelines: database selection and search strategy development (part 2/3)</title>
       <link>/publication/sr-ee/</link>
       <pubDate>Tue, 01 Nov 2016 00:00:00 +0200</pubDate>
-      
       <guid>/publication/sr-ee/</guid>
-      <description>A short paper on how to prepare a systematic literature review of economic evaluations.</description>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+
+</description>
     </item>
     
   </channel>

@@ -3,84 +3,411 @@
   <channel>
     <title>data_fR@</title>
     <link>/</link>
-    <description>Recent content on data_fR@</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; {year} Frederick Thielen · all rights reserved</copyright>
-    <lastBuildDate>Thu, 28 Jun 2018 00:00:00 +0200</lastBuildDate>
-    
-	    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
+      <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <description>data_fR@</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2020 Frederick Thielen · all rights reserved</copyright><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0200</lastBuildDate>
+    <image>
+      <url>/images/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_2.png</url>
+      <title>data_fR@</title>
+      <link>/</link>
+    </image>
     
     <item>
-      <title>Recent &amp; Upcoming Talks</title>
-      <link>/talk/</link>
+      <title>Example Talk</title>
+      <link>/talk/example/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0200</pubDate>
-      
-      <guid>/talk/</guid>
-      <description></description>
+      <guid>/talk/example/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Academic&amp;rsquo;s &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Slides&lt;/em&gt;&lt;/a&gt; feature and link using &lt;code&gt;slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Upload&lt;/strong&gt; an existing slide deck to &lt;code&gt;static/&lt;/code&gt; and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shortcodes&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Further talk details can easily be added to this page using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
+</description>
     </item>
     
     <item>
-      <title>Posts</title>
-      <link>/post/</link>
+      <title>Using cbsodataR to plot total deaths per week in the Netherlands from 1995 to 2020 (OC from reddit)</title>
+      <link>/post/2020/cbsodatar-reddit/</link>
       <pubDate>Sun, 17 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/</guid>
-      <description></description>
+      <guid>/post/2020/cbsodatar-reddit/</guid>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Update 17 November 2020: code chunk to download CBS data was missing. This is now added however, this also leads to an update in the downloaded CBS data. This is kept for this exercise.&lt;/strong&gt;&lt;/p&gt;
+&lt;div id=&#34;background&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Background&lt;/h1&gt;
+&lt;p&gt;The other day I was browsing through reddit when a post in &lt;strong&gt;r/dataisbeautiful&lt;/strong&gt;
+caught my attention. The title stated
+&lt;a href=&#34;https://www.reddit.com/r/dataisbeautiful/comments/gcqqfn/oc_total_deaths_per_week_in_the_netherlands_from/&#34;&gt;[OC] Total deaths per week in the Netherlands from 1995 to 2020&lt;/a&gt; and showed a graph with several lines. User &lt;em&gt;theorange1990&lt;/em&gt;
+plotted the weekly total deaths in
+the Netherlands between 1995 and 2020, together with an “Upper Bound”
+line. In addition, three more labels were included in the figure, pointing to
+“2018 - Flu epidemic in the Netherlands”, “2020 - so far”, and ‘“Upper Bound” of
+a normal year curve’.&lt;/p&gt;
+&lt;p&gt;What stood out was one yellow curve, peaking on the y-axis. This one was
+labelled with “2020 - so far”. It didn’t look long for the community to point to
+some methodological flaws of plotting the data “as is”, but I was interested in
+where the data were actually coming from. In the authors citation, &lt;em&gt;theorange1990&lt;/em&gt;
+mentioned the source to be Statistics Netherlands (CBS), the national statistical
+office of the Netherlands and just below the sentence: “Data organized and
+graphed using Excel”.&lt;/p&gt;
+&lt;p&gt;While Excel is of course a valid tool for such simple plotting exercises, I
+wanted to see if and how I can replicate this graph in R.&lt;/p&gt;
+&lt;p&gt;The replication took about 10-15 minutes with downloading the most
+recent data from the CBS servers directly into R. This approach has several
+advantages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;R is getting newest data directly from the CBS server (no separate downloading,
+saving, opening, transformation from .csv to .xlsx by hand necessary)&lt;/li&gt;
+&lt;li&gt;The code can easily be shared (what I do here) and everyone running the script
+will received the same result&lt;/li&gt;
+&lt;li&gt;With new data points becoming available, the plot is “updating itself”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the following, I want share my approach.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;needed-packages&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Needed packages&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;tidyverse&lt;/strong&gt; for data cleaning, transformation and visualisation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cbsodataR&lt;/strong&gt; open data API client for CBS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cbs-data&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;CBS data&lt;/h1&gt;
+&lt;div id=&#34;download-with-cbs-api-cbsodatar&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Download with CBS API: cbsodataR&lt;/h2&gt;
+&lt;p&gt;To download the same data as the reddit author, we look at his/her link
+provided in the post: &lt;a href=&#34;https://opendata.cbs.nl/#/CBS/en/dataset/70895ENG/table&#34; class=&#34;uri&#34;&gt;https://opendata.cbs.nl/#/CBS/en/dataset/70895ENG/table&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Clicking the link brings us to the online table but we just need the “table
+identifier” which is a unique table ID for each CBS tables. I found these difficult
+to find on the table website but if you have the link, the identifier is part of
+its URL. In this case this is &lt;code&gt;70895ENG&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Let’s start writing the R script.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Load needed packages
+library(tidyverse)
+library(cbsodataR)
+
+# Import data from CBS using the table identifier
+db_cbs &amp;lt;- cbsodataR::cbs_get_data(&amp;quot;70895ENG&amp;quot;) %&amp;gt;%
+        cbs_add_label_columns() # Without this line we only see codes for each observation which are difficult to interpret&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that we have downloaded the table, let’s have a look at it.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(db_cbs)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 7
+##   Sex    Sex_label Age31December Age31December_l… Periods Periods_label Deaths_1
+##   &amp;lt;chr&amp;gt;  &amp;lt;fct&amp;gt;     &amp;lt;chr&amp;gt;         &amp;lt;fct&amp;gt;            &amp;lt;chr&amp;gt;   &amp;lt;fct&amp;gt;            &amp;lt;int&amp;gt;
+## 1 T0010… Total ma… 10000         Total            1995X0… 1995 week 0 …      394
+## 2 T0010… Total ma… 10000         Total            1995W1… 1995 week 1       2719
+## 3 T0010… Total ma… 10000         Total            1995W1… 1995 week 2       2823
+## 4 T0010… Total ma… 10000         Total            1995W1… 1995 week 3       2609
+## 5 T0010… Total ma… 10000         Total            1995W1… 1995 week 4       2664
+## 6 T0010… Total ma… 10000         Total            1995W1… 1995 week 5       2577&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tidy-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Tidy data&lt;/h2&gt;
+&lt;p&gt;The formatting looks different from the format on the table’s website, but this
+doesn’t matter for this plotting exercise.&lt;/p&gt;
+&lt;p&gt;One problem we have with the table though is that year and weeks are “smashed
+together” into one variable: &lt;code&gt;Periods&lt;/code&gt; or &lt;code&gt;Periods_label&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;We however want to plot deaths by week on the x-axis and each year should become
+one line. So we need to separate the years from the weeks.&lt;/p&gt;
+&lt;p&gt;Since &lt;code&gt;Periods&lt;/code&gt; always has eight characters, it is easiest use this column and
+separate the two information on time with &lt;code&gt;substr()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Just as on the OC we are only interested in pooled data for:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;both sexes (see columns &lt;code&gt;Sex&lt;/code&gt; or &lt;code&gt;Sex_label&lt;/code&gt;),&lt;/li&gt;
+&lt;li&gt;all age groups (see columns &lt;code&gt;Age31Decembet&lt;/code&gt; or &lt;code&gt;Age31December_label&lt;/code&gt;), and&lt;/li&gt;
+&lt;li&gt;weeks 1 to 52 (weeks 0 and 53 were excluded since they do not appear in each year).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;db_plot &amp;lt;- db_cbs %&amp;gt;%
+  mutate(year = factor(substr(Periods, start = 1, stop = 4)), # extract year
+         wk = factor(as.numeric(substr(Periods, start = 7, stop = 8)))) %&amp;gt;% #extract weeks
+        filter(Sex == &amp;quot;T001038&amp;quot;, # only keep data for both sexes
+               Age31December == &amp;quot;10000&amp;quot;,
+               wk %in% 1:52) %&amp;gt;% # only keep weeks 1 through 52
+        select(Sex_label, Deaths_1, year, wk) %&amp;gt;% # keep necessary data only
+  mutate(Sex_label = factor(Sex_label))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that we have the data in a tidy way and kept only necessary columns, let’s
+have a look at it (first six rows should be enough).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;head(db_plot)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 4
+##   Sex_label             Deaths_1 year  wk   
+##   &amp;lt;fct&amp;gt;                    &amp;lt;int&amp;gt; &amp;lt;fct&amp;gt; &amp;lt;fct&amp;gt;
+## 1 Total male and female     2719 1995  1    
+## 2 Total male and female     2823 1995  2    
+## 3 Total male and female     2609 1995  3    
+## 4 Total male and female     2664 1995  4    
+## 5 Total male and female     2577 1995  5    
+## 6 Total male and female     2536 1995  6&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;plotting-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Plotting data&lt;/h2&gt;
+&lt;p&gt;In this exercise we will use a simple line chart with &lt;strong&gt;ggplot2&lt;/strong&gt;. Since we have
+tidy data already we just needs to specify a few things.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = db_plot) +
+  # plot lines
+  geom_line(aes(x = factor(wk), y = Deaths_1, col = year, group = year)) +
+  # add lables
+  labs(title = &amp;quot;Deaths per week&amp;quot;,
+       x = &amp;quot;Week number&amp;quot;,
+       y = &amp;quot;Deaths&amp;quot;,
+       col = &amp;quot;Years&amp;quot;) +
+  # place legend and customise text size to make it all fit
+  theme(legend.position = &amp;quot;bottom&amp;quot;,
+        legend.text = element_text(size = 7),
+        text = element_text(size = 7)) + 
+  guides(col = guide_legend(nrow = 3)) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020/2020-05-17-using-cbsodatar-to-plot-total-deaths-per-week-in-the-netherlands-from-1995-to-2020-oc-from-reddit_files/figure-html/plotting-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;remarks-and-additions&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Remarks and additions&lt;/h2&gt;
+&lt;p&gt;As opposed to Excel, R is not “smoothing” the lines between the different data
+points for each week. If this is a goal this post on
+&lt;a href=&#34;https://stackoverflow.com/questions/35205795/plotting-smooth-line-through-all-data-points&#34;&gt;stackoverflow&lt;/a&gt;
+might be something for you.&lt;/p&gt;
+&lt;p&gt;By the time of writing, rendering and finally pushing this post to github, there
+were more data available than in the post on reddit. I decided to plot these data
+as well.&lt;/p&gt;
+&lt;p&gt;Since the data have information on age categories, plotting several
+graphs is quite easy. Instead of keeping only data for all age groups
+(see &lt;code&gt;filter(Age31December == &#34;10000&#34;&lt;/code&gt;),
+we can keep all age groups and use the &lt;code&gt;facet_wrap()&lt;/code&gt; function from &lt;strong&gt;ggplot2&lt;/strong&gt;.
+Notice
+that I use &lt;code&gt;scales = &#34;free&#34;&lt;/code&gt; to “zoom” into the different age groups.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;db_plot2 &amp;lt;- db_cbs %&amp;gt;%
+  mutate(year = factor(substr(Periods, start = 1, stop = 4)), # extract year
+         wk = factor(as.numeric(substr(Periods, start = 7, stop = 8)))) %&amp;gt;% #extract weeks
+        filter(Sex == &amp;quot;T001038&amp;quot;, # only keep data for both sexes
+               wk %in% 1:52) %&amp;gt;% # only keep weeks 1 through 52
+        select(Sex_label, Deaths_1, year, wk, Age31December_label) %&amp;gt;% # keep necessary data only
+  mutate(Sex_label = factor(Sex_label))
+
+ggplot(data = db_plot2) +
+  # plot lines
+  geom_line(aes(x = factor(wk), y = Deaths_1, col = year, group = year)) +
+  # add lables
+  labs(title = &amp;quot;Deaths per week&amp;quot;,
+       x = &amp;quot;Week number&amp;quot;,
+       y = &amp;quot;Deaths&amp;quot;,
+       col = &amp;quot;Years&amp;quot;) +
+  # place legend and customise text size to make it all fit
+  theme(legend.position = &amp;quot;bottom&amp;quot;,
+        legend.text = element_text(size = 7),
+        text = element_text(size = 7)) + 
+  guides(col = guide_legend(nrow = 3)) +
+  facet_wrap(~ Age31December_label, scales = &amp;quot;free&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020/2020-05-17-using-cbsodatar-to-plot-total-deaths-per-week-in-the-netherlands-from-1995-to-2020-oc-from-reddit_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Finally, we could also only include the last five years of data to avoid any
+discussions of the data not being comparable due to ageing, migration patterns,
+advances in vaccination programmes etc.&lt;/p&gt;
+&lt;p&gt;We can filter data in &lt;code&gt;ggplot()&lt;/code&gt; directly:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(data = filter(db_plot2, year %in% 2015:2020)) +
+  # plot lines
+  geom_line(aes(x = factor(wk), y = Deaths_1, col = year, group = year)) +
+  # add lables
+  labs(title = &amp;quot;Deaths per week&amp;quot;,
+       x = &amp;quot;Week number&amp;quot;,
+       y = &amp;quot;Deaths&amp;quot;,
+       col = &amp;quot;Years&amp;quot;) +
+  # place legend and customise text size to make it all fit
+  theme(legend.position = &amp;quot;bottom&amp;quot;,
+        legend.text = element_text(size = 7),
+        text = element_text(size = 7)) + 
+  guides(col = guide_legend(nrow = 1)) +
+  facet_wrap(~ Age31December_label, scales = &amp;quot;free&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020/2020-05-17-using-cbsodatar-to-plot-total-deaths-per-week-in-the-netherlands-from-1995-to-2020-oc-from-reddit_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;This post is avoiding any discussion on the usefulness of the data to interpret
+the COVID-19 pandemic on purpose. Instead it shows how to easily retrieve
+up-to-date data from CBS and plot them with a
+few lines of R code. The advantage to this approach (as opposed to plotting in
+Excel) is that the graphs are produced
+in a transparent and reproducible way and that they can be updated on a weekly
+basis (each
+time new data is becoming available). This post can serve as a use case for the
+&lt;strong&gt;cbsodataR&lt;/strong&gt; package or even &lt;strong&gt;ggplot2&lt;/strong&gt; (although for the latter there are
+much better examples out there).&lt;/p&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
-      <title>Publications</title>
-      <link>/publication/</link>
+      <title>Cost-effectivness of CAR T-cell therapy for pALL. A societal view.</title>
+      <link>/publication/cea-cart/</link>
       <pubDate>Tue, 14 Apr 2020 00:00:00 +0200</pubDate>
-      
-      <guid>/publication/</guid>
-      <description></description>
+      <guid>/publication/cea-cart/</guid>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+
+</description>
     </item>
     
     <item>
-      <title>Projects</title>
-      <link>/project/</link>
+      <title>The RETHRIM project</title>
+      <link>/project/external-project/</link>
       <pubDate>Thu, 23 May 2019 00:00:00 +0200</pubDate>
-      
-      <guid>/project/</guid>
+      <guid>/project/external-project/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Slides</title>
-      <link>/slides/</link>
+      <link>/slides/example/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>/slides/example/</guid>
+      <description>&lt;h1 id=&#34;welcome-to-slides&#34;&gt;Welcome to Slides&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Academic&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Efficiently write slides in Markdown&lt;/li&gt;
+&lt;li&gt;3-in-1: Create, Present, and Publish your slides&lt;/li&gt;
+&lt;li&gt;Supports speaker notes&lt;/li&gt;
+&lt;li&gt;Mobile friendly slides&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;controls&#34;&gt;Controls&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Next: &lt;code&gt;Right Arrow&lt;/code&gt; or &lt;code&gt;Space&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Previous: &lt;code&gt;Left Arrow&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Start: &lt;code&gt;Home&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Finish: &lt;code&gt;End&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Overview: &lt;code&gt;Esc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Speaker notes: &lt;code&gt;S&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Fullscreen: &lt;code&gt;F&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Zoom: &lt;code&gt;Alt + Click&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hakimel/reveal.js#pdf-export&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PDF Export&lt;/a&gt;: &lt;code&gt;E&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;code-highlighting&#34;&gt;Code Highlighting&lt;/h2&gt;
+&lt;p&gt;Inline code: &lt;code&gt;variable&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Code block:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;porridge &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blueberry&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; porridge &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blueberry&amp;#34;&lt;/span&gt;:
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Eating...&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;math&#34;&gt;Math&lt;/h2&gt;
+&lt;p&gt;In-line math: $x + y = z$&lt;/p&gt;
+&lt;p&gt;Block math:&lt;/p&gt;
+&lt;p&gt;$$
+f\left( x \right) = ;\frac{{2\left( {x + 4} \right)\left( {x - 4} \right)}}{{\left( {x + 4} \right)\left( {x + 1} \right)}}
+$$&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;fragments&#34;&gt;Fragments&lt;/h2&gt;
+&lt;p&gt;Make content appear incrementally&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{{% fragment %}} One {{% /fragment %}}
+{{% fragment %}} **Two** {{% /fragment %}}
+{{% fragment %}} Three {{% /fragment %}}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Press &lt;code&gt;Space&lt;/code&gt; to play!&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;
+One
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;strong&gt;Two&lt;/strong&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+Three
+&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;A fragment can accept two optional parameters:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;class&lt;/code&gt;: use a custom style (requires definition in custom CSS)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;weight&lt;/code&gt;: sets the order in which a fragment appears&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;speaker-notes&#34;&gt;Speaker Notes&lt;/h2&gt;
+&lt;p&gt;Add speaker notes to your presentation&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;{{% speaker_note %}}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;-&lt;/span&gt; Only the speaker can read these notes
+&lt;span style=&#34;color:#66d9ef&#34;&gt;-&lt;/span&gt; Press &lt;span style=&#34;color:#e6db74&#34;&gt;`S`&lt;/span&gt; key to view
+{{% /speaker_note %}}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Press the &lt;code&gt;S&lt;/code&gt; key to view the speaker notes!&lt;/p&gt;
+&lt;aside class=&#34;notes&#34;&gt;
+  &lt;ul&gt;
+&lt;li&gt;Only the speaker can read these notes&lt;/li&gt;
+&lt;li&gt;Press &lt;code&gt;S&lt;/code&gt; key to view&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/aside&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;themes&#34;&gt;Themes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;black: Black background, white text, blue links (default)&lt;/li&gt;
+&lt;li&gt;white: White background, black text, blue links&lt;/li&gt;
+&lt;li&gt;league: Gray background, white text, blue links&lt;/li&gt;
+&lt;li&gt;beige: Beige background, dark text, brown links&lt;/li&gt;
+&lt;li&gt;sky: Blue background, thin dark text, blue links&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;night: Black background, thick white text, orange links&lt;/li&gt;
+&lt;li&gt;serif: Cappuccino background, gray text, brown links&lt;/li&gt;
+&lt;li&gt;simple: White background, black text, blue links&lt;/li&gt;
+&lt;li&gt;solarized: Cream-colored background, dark green text, blue links&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;section data-noprocess data-shortcode-slide
+  
       
-      <guid>/slides/</guid>
-      <description></description>
+      data-background-image=&#34;/img/boards.jpg&#34;
+  &gt;
+
+&lt;h2 id=&#34;custom-slide&#34;&gt;Custom Slide&lt;/h2&gt;
+&lt;p&gt;Customize the slide style and background&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;{{&amp;lt; &lt;span style=&#34;color:#f92672&#34;&gt;slide&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;background-image&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/img/boards.jpg&amp;#34;&lt;/span&gt; &amp;gt;}}
+{{&amp;lt; &lt;span style=&#34;color:#f92672&#34;&gt;slide&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;background-color&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#0000FF&amp;#34;&lt;/span&gt; &amp;gt;}}
+{{&amp;lt; &lt;span style=&#34;color:#f92672&#34;&gt;slide&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;my-style&amp;#34;&lt;/span&gt; &amp;gt;}}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;custom-css-example&#34;&gt;Custom CSS Example&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s make headers navy colored.&lt;/p&gt;
+&lt;p&gt;Create &lt;code&gt;assets/css/reveal_custom.css&lt;/code&gt; with:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;reveal&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;section&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;h1&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
+.&lt;span style=&#34;color:#a6e22e&#34;&gt;reveal&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;section&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;h2&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt;
+.&lt;span style=&#34;color:#a6e22e&#34;&gt;reveal&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;section&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;h3&lt;/span&gt; {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;navy&lt;/span&gt;;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id=&#34;questions&#34;&gt;Questions?&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://discourse.gohugo.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
+</description>
     </item>
     
     <item>
-      <title>Overview</title>
-      <link>/tutorial/</link>
+      <title>Second‐line treatment for acute graft‐versus‐host disease with mesenchymal stromal cells: A decision model.</title>
+      <link>/publication/gvhd-model/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 +0200</pubDate>
+      <guid>/publication/gvhd-model/</guid>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+
+</description>
+    </item>
+    
+    <item>
+      <title>Example Page</title>
+      <link>/tutorial/example/</link>
       <pubDate>Sun, 09 Sep 2018 00:00:00 +0200</pubDate>
-      
-      <guid>/tutorial/</guid>
-      <description>&lt;p&gt;There is probably nothing more annoying than doing things all over again or
-&amp;ldquo;inventing the wheel twice&amp;rdquo;. Doing research, and especially economic evaluations,
-is often exactly just that:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;re-calculating transition rates&lt;/li&gt;
-&lt;li&gt;searching for the latest consumer price index or the friction period&lt;/li&gt;
-&lt;li&gt;fitting parametric survival model&lt;/li&gt;
-&lt;li&gt;visualising &amp;lsquo;standard&amp;rsquo; outputs&lt;/li&gt;
-&lt;li&gt;and many more&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This list may be endless. And although I (or certainly one of my colleagues)
-recently looked-up the source documentation/data somewhere, that particular
-link, script or text seems to have vanished from my PC. Or from my laptop,
-or Dropbox, or the shared network drive at work, or wherever I stored it.&lt;/p&gt;
-&lt;p&gt;Not only I find these searches annoying, I especially find them time consuming.
-So this is the core aim of this website: create myself a repository of &amp;lsquo;tutorials&amp;rsquo;
-to help me being more effective. Maybe some of these tutorial are useful to
-you as well. If you have comments or suggestion on the code please let me know.&lt;/p&gt;
+      <guid>/tutorial/example/</guid>
+      <description>&lt;p&gt;In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:&lt;/p&gt;
+&lt;h2 id=&#34;tip-1&#34;&gt;Tip 1&lt;/h2&gt;
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;tip-2&#34;&gt;Tip 2&lt;/h2&gt;
+&lt;p&gt;&amp;hellip;&lt;/p&gt;
 </description>
     </item>
     
@@ -88,18 +415,44 @@ you as well. If you have comments or suggestion on the code please let me know.&
       <title>Privacy Policy</title>
       <link>/privacy/</link>
       <pubDate>Thu, 28 Jun 2018 00:00:00 +0200</pubDate>
-      
       <guid>/privacy/</guid>
       <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
 </description>
     </item>
     
     <item>
-      <title>Authors</title>
-      <link>/author/</link>
+      <title>Obinutuzumab in Combination with Chemotherapy for the First-Line Treatment of Patients with Advanced Follicular Lymphoma: An Evidence Review Group Evaluation of the NICE Single Technology Appraisal</title>
+      <link>/publication/sta-obin/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0200</pubDate>
+      <guid>/publication/sta-obin/</guid>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+
+</description>
+    </item>
+    
+    <item>
+      <title>How to prepare a systematic review of economic evaluations for clinical practice guidelines: database selection and search strategy development (part 2/3)</title>
+      <link>/publication/sr-ee/</link>
+      <pubDate>Tue, 01 Nov 2016 00:00:00 +0200</pubDate>
+      <guid>/publication/sr-ee/</guid>
+      <description>
+&lt;link href=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
+
+
+
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/tutorial/rethrim/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/author/</guid>
+      <guid>/tutorial/rethrim/</guid>
       <description></description>
     </item>
     

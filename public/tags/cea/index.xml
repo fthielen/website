@@ -1,24 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>CEA on data_fR@</title>
+    <title>CEA | data_fR@</title>
     <link>/tags/cea/</link>
-    <description>Recent content in CEA on data_fR@</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; {year} Frederick Thielen · all rights reserved</copyright>
-    <lastBuildDate>Thu, 23 May 2019 00:00:00 +0200</lastBuildDate>
-    
-	<atom:link href="/tags/cea/index.xml" rel="self" type="application/rss+xml" />
-    
+      <atom:link href="/tags/cea/index.xml" rel="self" type="application/rss+xml" />
+    <description>CEA</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2020 Frederick Thielen · all rights reserved</copyright><lastBuildDate>Thu, 23 May 2019 00:00:00 +0200</lastBuildDate>
+    <image>
+      <url>/images/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_2.png</url>
+      <title>CEA</title>
+      <link>/tags/cea/</link>
+    </image>
     
     <item>
       <title>The RETHRIM project</title>
       <link>/project/external-project/</link>
       <pubDate>Thu, 23 May 2019 00:00:00 +0200</pubDate>
-      
       <guid>/project/external-project/</guid>
-      <description>RETHRIM is an EU sponsored research consortium that has initiated a phase III clinical trial to investigate the usefulness of Mesenchymal Stromal Cells for the treatment of Graft-versus-Host-Disease.</description>
+      <description></description>
     </item>
     
   </channel>
