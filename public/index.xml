@@ -38,7 +38,7 @@
 &lt;script src=&#34;/rmarkdown-libs/anchor-sections/anchor-sections.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;p&gt;&lt;strong&gt;Update 17 November 2020: code chunk to download CBS data was missing. This is now added however, this also leads to an update in the downloaded CBS data. This is kept for this exercise.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update 7 December 2020: code chunk to download CBS data was not visible but is now added. This also leads to an update in the downloaded CBS data (kept for this post).&lt;/strong&gt;&lt;/p&gt;
 &lt;div id=&#34;background&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Background&lt;/h1&gt;
 &lt;p&gt;The other day I was browsing through reddit when a post in &lt;strong&gt;r/dataisbeautiful&lt;/strong&gt;

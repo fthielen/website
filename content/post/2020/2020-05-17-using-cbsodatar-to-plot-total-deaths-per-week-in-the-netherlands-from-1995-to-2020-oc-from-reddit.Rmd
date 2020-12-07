@@ -17,7 +17,7 @@ summary: Replicating an original content (OC) from reddit with the R packages cb
   and ggplot2.
 ---
 
-**Update 17 November 2020: code chunk to download CBS data was missing. This is now added however, this also leads to an update in the downloaded CBS data. This is kept for this exercise.**
+**Update 7 December 2020: code chunk to download CBS data was not visible but is now added. This also leads to an update in the downloaded CBS data (kept for this post).**
 
 # Background
 The other day I was browsing through reddit when a post in **r/dataisbeautiful**
