@@ -23,7 +23,7 @@ interests:
 name: Frederick W. Thielen
 organizations:
 - name: Erasmus University Rotterdam
-  url: ""
+  url: "https://www.eur.nl/en/people/frederick-thielen"
 role: PhD student Health Technology Assessment
 social:
 - icon: envelope
@@ -34,7 +34,7 @@ social:
   link: https://twitter.com/FWThielen
 - icon: google-scholar
   icon_pack: ai
-  link: https://scholar.google.co.uk/citations?hl=de&user=V2-488kAAAAJ
+  link: https://scholar.google.co.uk/citations?user=V2-488kAAAAJ
 - icon: github
   icon_pack: fab
   link: https://github.com/fthielen
