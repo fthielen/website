@@ -47,7 +47,7 @@ subtitle = ""
  css_class = ""
 +++
 
-On *16 December 2020* I will defend my PhD Dissertation:
+On *16 December 2020*, at *15:30 hours CET*, I will defend my PhD Dissertation:
 
 **"Current Challenges in Health Technology Assessment: Assessing costs and cost-effectiveness of novel treatments in haemato-oncology"**
 
@@ -55,5 +55,6 @@ at the Erasmus University, Rotterdam.
 
 You can download a PDF version of my [dissertation](files/dissertation-wf_thielen.pdf), and its [online Appendix](files/online_appendix.pdf).
 
-If you want to watch the defence online, please click [here](https://erasmusuniversity.eu.qualtrics.com/jfe/form/SV_daLcFaqrAHVKo1n). 
+To watch the defence online, please click [here](https://media.eur.nl/Mediasite/Play/843c83fc18de4f9783efb960a83a18421d). 
 
+If the above link does not work, [this](https://eur.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=4707d2a7-b5c0-46ff-8dcd-ac8100a03c72) is the back-up link (lower quality).

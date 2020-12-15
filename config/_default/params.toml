@@ -145,14 +145,14 @@ sharing = true
   #   0: Disabled
   #   1: Disqus (https://disqus.com)
   #   2: Commento (https://commento.io)
-  engine = 0
+  engine = 1
 
   # Which page types are commentable?
-  commentable = {page = true, post = true, docs = true}
+  commentable = {page = false, post = true, docs = false}
 
   # Configuration of Disqus.
   [comments.disqus]
-    shortname = ""  # Paste the shortname from your Disqus dashboard.
+    shortname = "fthielen"  # Paste the shortname from your Disqus dashboard.
     show_count = true  # Show comment count in page header? (true/false)
 [map]
 # To show your address on a map in the Contact widget, enter your latitude and longitude (above)
