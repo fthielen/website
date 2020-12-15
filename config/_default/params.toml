@@ -152,7 +152,7 @@ sharing = true
 
   # Configuration of Disqus.
   [comments.disqus]
-    shortname = "fthielen"  # Paste the shortname from your Disqus dashboard.
+    shortname = "data-fr"  # Paste the shortname from your Disqus dashboard.
     show_count = true  # Show comment count in page header? (true/false)
 [map]
 # To show your address on a map in the Contact widget, enter your latitude and longitude (above)
