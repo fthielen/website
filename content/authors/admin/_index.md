@@ -7,7 +7,7 @@ education:
   courses:
   - course: PhD in Health Technology Assessment
     institution: Erasmus University Rotterdam
-    year: ongoing
+    year: 2020
   - course: MSc (Res) in Health Sciences
     institution: Maastricht University
     year: 2015
