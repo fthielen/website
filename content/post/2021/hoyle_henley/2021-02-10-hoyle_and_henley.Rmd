@@ -1,0 +1,276 @@
+---
+title: 'Improved curve fits to summary survival data: using and extending the Hoyle
+  & Henley spreadsheet in R'
+author: "Frederick Thielen"
+date: '2021-02-10'
+output: pdf_document
+categories: R
+tags:
+- Economic Evaluation
+- exrtrapolation
+- survival
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2021-02-10T17:39:43+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+editor_options:
+  chunk_output_type: console
+slug: hoyle_and_henley
+---
+```{r echo=FALSE}
+name1 <- "Hoyle and Henley spreadsheet"
+```
+
+
+# Background  
+The spreadsheet accompanying the Hoyle and Henley paper on improving curve
+firs to summary survival data
+([here](https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/1471-2288-11-139)),
+is a trusted tool to digitalise published Kaplan-Meier curves and using the
+parameters of the parametric model for economic models in Excel.
+
+The Excel spreadsheet (here referred to as "Hoyle and Henley spreadsheet") provides
+some R code to fit several parametric models. However, R code for the other
+standard models (as defined by
+[NICE DSU Technical Support Document 14](https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/1471-2288-11-139))
+like the *Gompertz* and *generalised gamma* function are not included. The most
+likely reason for this is probably that the **survival** package (which is used
+in the Hoyle and Henley spreadsheet) does not support these two functions.
+
+Here, I provide the R code to estimate both the *Gompertz* and *generalised gamma*
+function using the **flexsurv** package. In addition, I show how to use the
+Hoyle and Henley sheet directly, without the need of exporting data from the
+"R data" sheet into a separate .txt file.
+
+# Assumptions
+
+I assume that:  
+
+- you have a very basic understanding of R
+- you know the Hoyle and Henley spreadsheet and also how to use it
+
+# Preparations
+To get started with the following code, you should follow steps 1 and 2
+explained in the Hoyle and Henley spreadsheet and save one spreadsheet for each
+arm of the Kaplan-Meier curve. Make sure to give
+each Hoyle and Henley spreadsheet a unique and identifiable name.
+
+Next, open RStudio and create a new project in a directory of your choice.
+If you don't know what a project in RStudio is read [here](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects).
+
+Within your project, create a new folder called "data". Put all your
+Hoyle and Henley spreadsheets in this folder.
+
+Now you can open a new R script. If you don't know what a script is read
+[here](https://support.rstudio.com/hc/en-us/articles/200484448-Editing-and-Executing-Code).
+
+The following steps come *after* step 1-2 of the Hoyle and Henley spreadsheet.
+
+# Step 3: read the data
+
+There is no need to store the "R data" sheet in a separate text (.txt) file!
+Make sure you have the following packages installed. If you don't know how this
+works, read [here](https://www.r-bloggers.com/2010/11/installing-r-packages/).
+
+We need the following packages:
+
+```{r message=FALSE}
+library("readxl")
+library("here")
+library("survival")
+library("flexsurv")
+library("dplyr")
+```
+
+Now, we can read-in the data. 
+Copy/paste the following code into you script and run it. Make sure to replace my
+file path with the one to the Excel sheet of you choice. If you followed the steps
+above, this should be:
+`path = here::here("data/HoyleHenleySheetYouWant.xls")`.
+
+```{r message=FALSE}
+# This is the actual R data sheet
+spreadsheet_data <- readxl::read_xls(
+  path = here::here("data/posts/2021/hoyle_henley/HoyleHenleyVersion_1.2.xls"),
+  sheet = "R data",
+  col_types = "numeric") %>% 
+  na.omit(.)
+
+# This is needed too
+meta_data <- readxl::read_xls(
+  path = here::here("data/posts/2021/hoyle_henley/HoyleHenleyVersion_1.2.xls"),
+  sheet = "Number events & censored",
+  range = "O14:O16",
+  col_names = FALSE)
+```
+
+
+# Step 4: adding time for patients at risk at last time point
+
+Copy/paste the following code into you script and run it.
+
+```{r}
+# Prepare times_start
+times_start <-c(
+  rep(spreadsheet_data$start_time_censor,
+      spreadsheet_data$n_censors),
+  rep(spreadsheet_data$start_time_event,
+      spreadsheet_data$n_events))
+
+if(meta_data[1, 1] == "Yes"){
+  times_start <- c(times_start,
+                   rep(as.numeric(last(spreadsheet_data$end_time_event)),
+                       as.numeric(meta_data[2, 1]))
+                   )
+}
+
+# Prepare times_end
+times_end <-c(
+  rep(spreadsheet_data$end_time_censor,
+      spreadsheet_data$n_censors),
+  rep(spreadsheet_data$end_time_event,
+      spreadsheet_data$n_events))
+
+if(meta_data[1, 1] == "Yes"){
+  times_end <- c(times_end,
+                   rep(as.numeric(last(spreadsheet_data$end_time_censor)),
+                       as.numeric(meta_data[2, 1]))
+                   )
+}
+```
+
+## Step 5: curve fitting
+
+Now we can fit the parametric models. Other than in the `r name1`, we do not need
+to comment out each line of code in Step 5 or run each line separately. Here,
+all models have distinct names:
+
+- `fit1` = exponential model
+- `fit2` = weibull model
+- `fit3` = lognormal model
+- `fit4` = log logistic model
+- `fit5` = Gompertz model
+- `fit6` = generalised gamma model
+
+```{r}
+# Here we define all possible distributions once so we don't need to type them each time
+possible_dist <- c("exponential", "weibull", "lognormal", "llogis", "gompertz",
+                   "gengamma")
+
+#### Fitting with the survival package (like in the Hoyle and Henley spreadsheet) ####
+fit1_survival <- survival::survreg(
+  Surv(times_start, times_end, type = "interval2") ~ 1,
+  data = spreadsheet_data,
+  dist = possible_dist[1])
+
+fit2_survival <- survreg(
+  Surv(times_start, times_end, type = "interval2") ~ 1,
+  data = spreadsheet_data,
+  dist = possible_dist[2])
+
+fit3_survival <- survreg(
+  Surv(times_start, times_end, type = "interval2") ~ 1,
+  data = spreadsheet_data,
+  dist = possible_dist[3])
+
+fit4_survival <- survreg(
+  Surv(times_start, times_end, type = "interval2") ~ 1,
+  data = spreadsheet_data,
+  dist = "loglogistic")
+
+#### Fitting with the flexsurv package ####
+fit1 <- flexsurv::flexsurvreg(
+  Surv(times_start, times_end, type = "interval2") ~ 1,
+  data = spreadsheet_data,
+  dist = possible_dist[1])
+
+fit2 <- flexsurvreg(
+  Surv(times_start, times_end, type = "interval2") ~ 1,
+  data = spreadsheet_data,
+  dist = possible_dist[2])
+
+fit3 <- flexsurvreg(
+  Surv(times_start, times_end, type = "interval2") ~ 1,
+  data = spreadsheet_data,
+  dist = possible_dist[3])
+
+fit4 <- flexsurvreg(
+  Surv(times_start, times_end, type = "interval2") ~ 1,
+  data = spreadsheet_data,
+  dist = possible_dist[4])
+
+fit5 <- flexsurvreg(
+  Surv(times_start, times_end, type = "interval2") ~ 1,
+  data = spreadsheet_data,
+  dist = possible_dist[5])
+
+fit6 <- flexsurvreg(
+  Surv(times_start, times_end, type = "interval2") ~ 1,
+  data = spreadsheet_data,
+  dist = possible_dist[6])
+```
+
+You see that there are several warning message for the example data. If this is
+also the case for your data, you should consider using the **survival** package
+only.
+
+# Step 6: AIC/BIC values
+
+In the next step, we can extract the AIC and BIC values.
+
+```{r}
+aicbic <- data.frame(distribution = possible_dist,
+                             AIC = c(fit1$AIC, fit2$AIC, fit3$AIC,
+                                     fit4$AIC, fit5$AIC, fit6$AIC),
+                             BIC = c(BIC(fit1), BIC(fit2), BIC(fit3),
+                                     BIC(fit4), BIC(fit5), BIC(fit6)),
+                             stringsAsFactors = FALSE) %>% 
+          mutate(AIC_rank = rank(AIC),
+                 BIC_rank = rank(BIC)) %>% 
+          select(distribution, AIC, AIC_rank, BIC, BIC_rank)
+
+aicbic
+```
+
+# Step 7: Cholesky matrix
+
+## With **flexsurv**
+In the next step we can extract the Cholesky matrix for **flexsurv** package.
+Be aware that this only works when the models converge. So if you received a 
+warning message while fitting the model, you do not even have to try getting
+the Cholesky matrix.
+
+```{r error=TRUE}
+chol(fit1$cov)
+chol(fit2$cov)
+chol(fit3$cov)
+chol(fit4$cov)
+chol(fit5$cov)
+chol(fit6$cov)
+```
+
+## With **survival**
+
+In case you fit the models with the **survival** package, you should use the original
+code from the `r name1` below:
+
+```{r}
+chol(summary(fit1_survival)$var)
+chol(summary(fit2_survival)$var)
+chol(summary(fit3_survival)$var)
+chol(summary(fit4_survival)$var)
+```
+
+
+# Known issues
+For the example data, several parametric models of **flexsurv** do not converge
+to the maximum likelihood, where the the same models do with **survival** (e.g.
+the weibull model). This is a recognised issue which is due to different optimisation
+methods employed by **felxsurv** and **survival** (see
+[here](https://github.com/chjackson/flexsurv-dev/issues/67)).
