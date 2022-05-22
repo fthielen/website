@@ -18,12 +18,33 @@ date_format = "Jan 2006"
 #   Leave `date_end` empty if it's your current employer.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 [[experience]]
+  title = "Assistant professor"
+  company = "Erasmus University Rotterdam; Erasmus School of Health Policy and Management"
+  company_url = ""
+  location = "Rotterdam"
+  date_start = "2021-01-02"
+  date_end = ""
+  description = """
+  Teaching activities:
+  
+  * Co-coordinator: Master degree elective course "Pharmaceutical Pricing and Market Access"
+  * Teacher/Tutor: Master degree courses "Health Technology Assessment" and "Advanced Health Economic Modelling"
+  * Supervisor: PhD students and master thesis students
+
+  Research activities:
+  * Health Technology Assessment work package of T2EVOLVE (t2evolve.eu)
+  * Health Technology Assessment of treatments for multiple myeloma for the Canadian Agency for Drugs and Technologies in Health (CADTH)
+
+  """
+
+
+[[experience]]
   title = "PhD student"
   company = "Erasmus University Rotterdam; Erasmus School of Health Policy and Management"
   company_url = ""
   location = "Rotterdam"
   date_start = "2015-09-01"
-  date_end = ""
+  date_end = "2020-16-12"
   description = """
   Responsibilities include:
   
