@@ -24,7 +24,7 @@ name: Frederick W. Thielen
 organizations:
 - name: Erasmus University Rotterdam
   url: "https://www.eur.nl/en/people/frederick-thielen"
-role: PhD student Health Technology Assessment
+role: Assistant professor Health Technology Assessment
 social:
 - icon: envelope
   icon_pack: fas
