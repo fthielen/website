@@ -44,7 +44,7 @@ date_format = "Jan 2006"
   company_url = ""
   location = "Rotterdam"
   date_start = "2015-09-01"
-  date_end = "2020-16-12"
+  date_end = "2020-12-16"
   description = """
   Responsibilities include:
   
